@@ -149,24 +149,24 @@
 
   <section id="services">
   <h2>Services</h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-    <div style="background-color: rgba(255,255,255,0.9); padding: 20px; border-radius: 8px; width: 300px;">
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1000px; margin: 0 auto;">
+    <div style="background-color: rgba(255,255,255,0.9); padding: 20px; border-radius: 8px; width: 30%; min-width: 280px;">
       <h3>Roof Overview Package</h3>
       <p>High-resolution drone images of the roof for a general overview of condition. $125 (&lt;2500 sq ft), $175 (&gt;2500 sq ft)</p>
     </div>
-    <div style="background-color: rgba(255,255,255,0.9); padding: 20px; border-radius: 8px; width: 300px;">
+    <div style="background-color: rgba(255,255,255,0.9); padding: 20px; border-radius: 8px; width: 30%; min-width: 280px;">
       <h3>Roof Visual Report</h3>
       <p>Detailed drone photos and report highlighting roof condition, damage, and points of concern.</p>
     </div>
-    <div style="background-color: rgba(255,255,255,0.9); padding: 20px; border-radius: 8px; width: 300px;">
+    <div style="background-color: rgba(255,255,255,0.9); padding: 20px; border-radius: 8px; width: 30%; min-width: 280px;">
       <h3>Realtor Marketing Add-On</h3>
       <p>Aerial photos and footage for use in marketing materials and listings.</p>
     </div>
-    <div style="background-color: rgba(255,255,255,0.9); padding: 20px; border-radius: 8px; width: 300px;">
+    <div style="background-color: rgba(255,255,255,0.9); padding: 20px; border-radius: 8px; width: 30%; min-width: 280px;">
       <h3>Land Survey Flyover</h3>
       <p>Drone flyover of undeveloped or large lots for visibility of terrain and layout. Call for pricing.</p>
     </div>
-    <div style="background-color: rgba(255,255,255,0.9); padding: 20px; border-radius: 8px; width: 300px;">
+    <div style="background-color: rgba(255,255,255,0.9); padding: 20px; border-radius: 8px; width: 30%; min-width: 280px;">
       <h3>Insurance Claims</h3>
       <p>Visual documentation to support roof-related insurance claims. Images delivered quickly.</p>
     </div>
@@ -216,12 +216,12 @@
         if (href === "#") {
           logo.classList.remove("logo-small");
           logo.classList.add("logo-large");
-          cta.classList.remove("cta-small");
+          
           window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
           logo.classList.add("logo-small");
           logo.classList.remove("logo-large");
-          cta.classList.add("cta-small");
+          
         }
       });
     });
