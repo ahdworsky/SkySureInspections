@@ -11,29 +11,12 @@
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding-top: 380px;
+      padding-top: 230px;
       color: #1A2A3A;
       background: url('Background.png') no-repeat center center fixed;
       background-size: cover;
-    }
-    header {
-      background-color: transparent;
-      color: white;
-      padding: 10px 20px;
-      text-align: center;
-      position: fixed;
-      top: 50px;
-      width: 100%;
-      height: 80px;
-      z-index: 1000;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    header img {
-      max-width: 300px;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-      background: transparent;
+      z-index: 0;
+      position: relative;
     }
     nav {
       background: #1A2A3A;
@@ -51,11 +34,32 @@
       margin: 0 15px;
       font-weight: bold;
     }
+    header {
+      background-color: #FFFFFF;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      position: fixed;
+      top: 50px;
+      width: 100%;
+      height: 80px;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    header img {
+      max-width: 300px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      background: transparent;
+    }
     section {
       padding: 30px;
-      background-color: transparent;
+      background-color: rgba(255,255,255,0.95);
       margin: 20px;
       border-radius: 8px;
+      position: relative;
+      z-index: 0;
     }
     h2 {
       color: #0E1F2F;
@@ -83,16 +87,15 @@
   </style>
 </head>
 <body>
-  <header>
-    
-    <img src="Final_Logo_Transparent.png" alt="SkySure Inspections Logo" style="background-color: transparent;" />
-  </header>
-
   <nav>
     <a href="#about">Services</a>
     <a href="#services">About</a>
     <a href="#contact">Contact</a>
   </nav>
+
+  <header>
+    <img src="Final_Logo_Transparent.png" alt="SkySure Inspections Logo" style="background-color: transparent;" />
+  </header>
 
   <section id="services">
     <h2>Services</h2>
