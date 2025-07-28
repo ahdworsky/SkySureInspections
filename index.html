@@ -17,11 +17,12 @@
       background-size: cover;
       z-index: 0;
       position: relative;
+      overflow-x: hidden;
     }
     nav {
       background: #1A2A3A;
       width: 100%;
-      padding: 10px;
+      padding: 10px 0;
       text-align: center;
       font-weight: bold;
       position: fixed;
@@ -36,7 +37,6 @@
     }
     header {
       background-color: #FFFFFF;
-      color: white;
       padding: 10px 20px;
       text-align: center;
       position: fixed;
@@ -60,6 +60,10 @@
       border-radius: 8px;
       position: relative;
       z-index: 0;
+      display: none;
+    }
+    section:target {
+      display: block;
     }
     h2 {
       color: #0E1F2F;
@@ -88,8 +92,8 @@
 </head>
 <body>
   <nav>
-    <a href="#about">Services</a>
-    <a href="#services">About</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </nav>
 
