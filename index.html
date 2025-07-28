@@ -10,7 +10,7 @@
       margin: 0;
       padding: 0;
       color: #1A2A3A;
-      background: <img src=("background.png") no-repeat center center fixed />;
+      background: url('background.png') no-repeat center center fixed;
       background-size: cover;
     }
     header {
@@ -21,9 +21,10 @@
     }
     header img {
       max-width: 300px;
-      height: 200px;
+      height: auto;
       display: block;
       margin: 0 auto;
+      background: transparent;
     }
     nav {
       background: #1A2A3A;
@@ -69,7 +70,7 @@
 </head>
 <body>
   <header>
-    <img src="Final Logo.png" alt="SkySure Inspections Logo" />
+    <img src="Final Logo.png" alt="SkySure Inspections Logo" style="background-color: transparent;" />
   </header>
 
   <nav>
