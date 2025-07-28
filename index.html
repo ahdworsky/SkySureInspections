@@ -58,28 +58,6 @@
       background: transparent;
       transition: all 0.5s ease;
     }
-    .cta-button {
-      display: block;
-      margin: 10px auto 0;
-      padding: 15px 30px;
-      background-color: #EA5A1F;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      cursor: pointer;
-      text-decoration: none;
-      z-index: 1003;
-      position: relative;
-      transition: all 0.3s ease;
-    }
-    .cta-small {
-      position: fixed;
-      top: 80px;
-      right: 20px;
-      margin: 0;
-    }
     section {
       padding: 30px;
       background-color: transparent;
@@ -93,6 +71,39 @@
     }
     .service {
       margin-bottom: 20px;
+    }
+    .services-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      gap: 20px;
+    }
+    .service-box {
+      background-color: rgba(255,255,255,0.9);
+      padding: 25px;
+      border-radius: 12px;
+      width: 30%;
+      min-width: 280px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      box-sizing: border-box;
+    }
+    .second-row-container {
+      display: flex;
+      justify-content: center;
+      max-width: 700px;
+      margin: 30px auto 0 auto;
+      gap: 20px;
+    }
+    .second-row-box {
+      background-color: rgba(255,255,255,0.9);
+      padding: 25px;
+      border-radius: 12px;
+      width: 45%;
+      min-width: 280px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      box-sizing: border-box;
     }
     .contact {
       font-size: 1.1rem;
@@ -144,59 +155,58 @@
 
   <header id="top">
     <img src="Final_Logo_Transparent.png" alt="SkySure Inspections Logo" class="logo-large" style="background-color: transparent;" />
-    
   </header>
 
   <section id="services">
-  <h2>Services</h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1000px; margin: 0 auto;">
-    <div style="background-color: rgba(255,255,255,0.9); padding: 20px; border-radius: 8px; width: 30%; min-width: 280px;">
-      <h3>Roof Overview Package</h3>
-      <p>High-resolution drone images of the roof for a general overview of condition. $125 (&lt;2500 sq ft), $175 (&gt;2500 sq ft)</p>
+    <h2>Services</h2>
+    <div class="services-container">
+      <div class="service-box">
+        <h3>Roof Snapshot</h3>
+        <p>A quick aerial overview of roof condition with high-res images.<br><strong>Price:</strong> $125 (&lt;2500 sq ft) / $175 (&gt;2500 sq ft)</p>
+      </div>
+      <div class="service-box">
+        <h3>Detailed Roof Report</h3>
+        <p>Thorough inspection photos highlighting any signs of wear, damage, or deterioration.<br><strong>Price:</strong> $150 (&lt;2500 sq ft) / $200 (&gt;2500 sq ft)</p>
+      </div>
+      <div class="service-box">
+        <h3>Realtor Marketing Add-On</h3>
+        <p>Drone images & video to boost your listing’s visual appeal.<br><strong>Price:</strong> Add-on $50</p>
+      </div>
     </div>
-    <div style="background-color: rgba(255,255,255,0.9); padding: 20px; border-radius: 8px; width: 30%; min-width: 280px;">
-      <h3>Roof Visual Report</h3>
-      <p>Detailed drone photos and report highlighting roof condition, damage, and points of concern.</p>
+    <div class="second-row-container">
+      <div class="second-row-box">
+        <h3>Land Survey Flyover</h3>
+        <p>Aerial coverage of land or acreage to visualize terrain, layout & surroundings.<br><strong>Price:</strong> Contact for quote</p>
+      </div>
+      <div class="second-row-box">
+        <h3>Insurance Claim Documentation</h3>
+        <p>Photo documentation of damage to support roofing or storm-related claims.<br><strong>Price:</strong> $150 flat rate</p>
+      </div>
     </div>
-    <div style="background-color: rgba(255,255,255,0.9); padding: 20px; border-radius: 8px; width: 30%; min-width: 280px;">
-      <h3>Realtor Marketing Add-On</h3>
-      <p>Aerial photos and footage for use in marketing materials and listings.</p>
-    </div>
-    <div style="background-color: rgba(255,255,255,0.9); padding: 20px; border-radius: 8px; width: 30%; min-width: 280px;">
-      <h3>Land Survey Flyover</h3>
-      <p>Drone flyover of undeveloped or large lots for visibility of terrain and layout. Call for pricing.</p>
-    </div>
-    <div style="background-color: rgba(255,255,255,0.9); padding: 20px; border-radius: 8px; width: 30%; min-width: 280px;">
-      <h3>Insurance Claims</h3>
-      <p>Visual documentation to support roof-related insurance claims. Images delivered quickly.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
   <section id="about">
-  <h2>About SkySure</h2>
-  <p>SkySure Inspections provides professional drone-based roof and land imaging services for homeowners, homebuyers, real estate agents, and land purchasers. Our mission is to offer high-resolution visuals from above—helping buyers understand property conditions before making an offer, and assisting homeowners and realtors in presenting properties with greater transparency. With SkySure, you gain clarity from the sky and confidence on the ground.</p>
-</section>
+    <h2>About SkySure</h2>
+    <p>SkySure Inspections provides professional drone-based roof and land imaging services for homeowners, homebuyers, real estate agents, and land purchasers. Our mission is to offer high-resolution visuals from above—helping buyers understand property conditions before making an offer, and assisting homeowners and realtors in presenting properties with greater transparency. With SkySure, you gain clarity from the sky and confidence on the ground.</p>
+  </section>
 
   <section id="contact">
-  <h2>Contact</h2>
-  <div class="contact">
-    <p><strong>Email:</strong> aaron@skysure.com</p>
-    <p><strong>Phone:</strong> 704-885-5795</p>
-    <p><strong>Location:</strong> Charlotte & surrounding areas</p>
-    <p><strong>Hours:</strong> M–F 9am–8pm | Sat 9am–6pm | Sun 9am–12pm</p>
-  </div>
-</section>
+    <h2>Contact</h2>
+    <div class="contact">
+      <p><strong>Email:</strong> aaron@skysure.com</p>
+      <p><strong>Phone:</strong> 704-885-5795</p>
+      <p><strong>Location:</strong> Charlotte & surrounding areas</p>
+      <p><strong>Hours:</strong> M–F 9am–8pm | Sat 9am–6pm | Sun 9am–12pm</p>
+    </div>
+  </section>
 
   <footer>
     FAA Part 107 Certified | Insured | Not a home inspection – just a clear, sky-high view of what matters most.
   </footer>
 
-  
-
   <script>
     const logo = document.querySelector("header img");
-        const servicesSection = document.getElementById("services");
+    const servicesSection = document.getElementById("services");
     const navLinks = document.querySelectorAll("nav a");
 
     window.addEventListener("scroll", () => {
@@ -204,10 +214,10 @@
       if (window.scrollY >= triggerPoint) {
         logo.classList.add("logo-small");
         logo.classList.remove("logo-large");
-              } else {
+      } else {
         logo.classList.remove("logo-small");
         logo.classList.add("logo-large");
-              }
+      }
     });
 
     navLinks.forEach(link => {
@@ -216,12 +226,10 @@
         if (href === "#") {
           logo.classList.remove("logo-small");
           logo.classList.add("logo-large");
-          
           window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
           logo.classList.add("logo-small");
           logo.classList.remove("logo-large");
-          
         }
       });
     });
