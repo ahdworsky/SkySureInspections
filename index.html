@@ -177,5 +177,19 @@
   <footer>
     FAA Part 107 Certified | Insured | Not a home inspection – just a clear, sky-high view of what matters most.
   </footer>
+<script>
+  const header = document.querySelector("header");
+  const navLinks = document.querySelectorAll("nav a");
+
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      if (link.getAttribute("href") === "#") {
+        header.style.display = "block";
+      } else {
+        header.style.display = "none";
+      }
+    });
+  });
+</script>
 </body>
 </html>
