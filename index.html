@@ -8,13 +8,13 @@
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding-top: 80px;
+      padding-top: 170px;
       color: #1A2A3A;
       background: url('Background.png') no-repeat center center fixed;
       background-size: cover;
     }
     header {
-      background-color: transparent;
+      background-color: #FFFFFF;
       color: white;
       padding: 10px 20px;
       text-align: center;
@@ -34,10 +34,13 @@
     }
     nav {
       background: #1A2A3A;
-      top: 0;
+      position: fixed;
+      top: 80px;
+      width: 100%;
       padding: 10px;
       text-align: center;
       font-weight: bold;
+      z-index: 999;
     }
     nav a {
       color: white;
@@ -86,11 +89,6 @@
     <a href="#services">About</a>
     <a href="#contact">Contact</a>
   </nav>
-
-  <section id="about">
-    <h2>About SkySure</h2>
-    <p>SkySure Inspections provides professional drone-based roof and land imaging services. We help homebuyers, homeowners, real estate agents, and roofers get the visual information they need before making costly decisions. Our FAA Part 107 certified pilots deliver high-resolution aerial photos, annotated reports, and video walkthroughs—all without climbing a ladder.</p>
-  </section>
 
   <section id="services">
     <h2>Services</h2>
@@ -145,6 +143,11 @@
         </ul>
       </div>
     </div>
+  </section>
+
+  <section id="about">
+    <h2>About SkySure</h2>
+    <p>SkySure Inspections provides professional drone-based roof and land imaging services. We help homebuyers, homeowners, real estate agents, and roofers get the visual information they need before making costly decisions. Our FAA Part 107 certified pilots deliver high-resolution aerial photos, annotated reports, and video walkthroughs—all without climbing a ladder.</p>
   </section>
 
   <section id="contact">
