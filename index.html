@@ -11,7 +11,6 @@
       padding: 0;
       color: #1A2A3A;
       background: url('background.png') no-repeat center center fixed;
-      aspect-ratio: 16/9;
       background-size: cover;
     }
     header {
@@ -40,7 +39,7 @@
     }
     section {
       padding: 30px;
-      background-color: #FFFFFFF00;
+      background-color: rgba(255, 255, 255, 0.9);
       margin: 20px;
       border-radius: 8px;
     }
@@ -70,7 +69,10 @@
   </style>
 </head>
 <body>
-  
+  <header>
+    <img src="Final Logo.png" alt="SkySure Inspections Logo" style="background-color: transparent;" />
+  </header>
+
   <nav>
     <a href="#about">About</a>
     <a href="#services">Services</a>
@@ -84,35 +86,36 @@
 
   <section id="services">
     <h2>Services</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+      <div class="service" style="flex: 1; min-width: 280px; max-width: 320px; background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+        <h3>1. Roof Overview Package – $75</h3>
+        <ul>
+          <li>5–7 high-resolution drone photos</li>
+          <li>30–60 second unedited video flyover</li>
+          <li>Delivery within 24 hours</li>
+          <li>No written report or notes</li>
+        </ul>
+        <p><strong>Best for:</strong> pre-offer buyers, agents, and homeowners monitoring roof condition.</p>
+      </div>
 
-    <div class="service">
-      <h3>1. Roof Overview Package – $75</h3>
-      <ul>
-        <li>5–7 high-resolution drone photos</li>
-        <li>30–60 second unedited video flyover</li>
-        <li>Delivery within 24 hours</li>
-        <li>No written report or notes</li>
-      </ul>
-      <p><strong>Best for:</strong> pre-offer buyers, agents, and homeowners monitoring roof condition.</p>
-    </div>
+      <div class="service" style="flex: 1; min-width: 280px; max-width: 320px; background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+        <h3>2. Roof Visual Report – $125 / $175</h3>
+        <ul>
+          <li>Includes everything in Overview Package</li>
+          <li>Branded PDF report with annotations and flagged areas</li>
+          <li>Optional measurements (DroneDeploy)</li>
+          <li>Before/after image comparisons</li>
+        </ul>
+      </div>
 
-    <div class="service">
-      <h3>2. Roof Visual Report – $125 / $175</h3>
-      <ul>
-        <li>Includes everything in Overview Package</li>
-        <li>Branded PDF report with annotations and flagged areas</li>
-        <li>Optional measurements (DroneDeploy)</li>
-        <li>Before/after image comparisons</li>
-      </ul>
-    </div>
-
-    <div class="service">
-      <h3>3. Realtor Marketing Add-On – $50</h3>
-      <ul>
-        <li>Edited promo video with title screen and music</li>
-        <li>Branded with agent contact info</li>
-        <li>Optimized for social media</li>
-      </ul>
+      <div class="service" style="flex: 1; min-width: 280px; max-width: 320px; background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+        <h3>3. Realtor Marketing Add-On – $50</h3>
+        <ul>
+          <li>Edited promo video with title screen and music</li>
+          <li>Branded with agent contact info</li>
+          <li>Optimized for social media</li>
+        </ul>
+      </div>
     </div>
 
     <div class="service">
