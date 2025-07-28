@@ -14,10 +14,15 @@
       background-size: cover;
     }
     header {
-      background-color: #FFFFFFF;
+      background-color: #FFFFFF;
       color: white;
       padding: 10px 20px;
       text-align: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     header img {
       max-width: 300px;
@@ -30,6 +35,7 @@
       background: #1A2A3A;
       padding: 10px;
       text-align: center;
+      margin-top: 100px;
     }
     nav a {
       color: white;
@@ -39,7 +45,7 @@
     }
     section {
       padding: 30px;
-      background-color: transparent;
+      background-color: rgba(255, 255, 255, 0.9);
       margin: 20px;
       border-radius: 8px;
     }
@@ -70,14 +76,19 @@
 </head>
 <body>
   <header>
-    <img src="Final_Logo_Transparent.png" alt="SkySure Inspections Logo" style="background-color: transparent  position: sticky;" />
+    <img src="Final Logo.png" alt="SkySure Inspections Logo" style="background-color: transparent;" />
   </header>
 
   <nav>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
+    <a href="#about">Services</a>
+    <a href="#services">About</a>
     <a href="#contact">Contact</a>
   </nav>
+
+  <section id="about">
+    <h2>About SkySure</h2>
+    <p>SkySure Inspections provides professional drone-based roof and land imaging services. We help homebuyers, homeowners, real estate agents, and roofers get the visual information they need before making costly decisions. Our FAA Part 107 certified pilots deliver high-resolution aerial photos, annotated reports, and video walkthroughs—all without climbing a ladder.</p>
+  </section>
 
   <section id="services">
     <h2>Services</h2>
@@ -132,11 +143,6 @@
         </ul>
       </div>
     </div>
-  </section>
-
-  <section id="about">
-    <h2>About SkySure</h2>
-    <p>SkySure Inspections provides professional drone-based roof and land imaging services. We help homebuyers, homeowners, real estate agents, and roofers get the visual information they need before making costly decisions. Our FAA Part 107 certified pilots deliver high-resolution aerial photos, annotated reports, and video walkthroughs—all without climbing a ladder.</p>
   </section>
 
   <section id="contact">
