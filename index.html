@@ -18,9 +18,10 @@
       z-index: 0;
       position: relative;
       overflow-x: hidden;
+      background-color: transparent;
     }
     nav {
-      background: #1A2A3A;
+      background: transparent;
       width: 100%;
       padding: 10px 0;
       text-align: center;
@@ -36,15 +37,14 @@
       font-weight: bold;
     }
     header {
-      background-color: #FFFFFF;
+      background-color: transparent;
       padding: 10px 20px;
       text-align: center;
       position: fixed;
       top: 50px;
       width: 100%;
       height: 80px;
-      z-index: 1000;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      z-index: 1002;
     }
     header img {
       max-width: 300px;
@@ -59,11 +59,7 @@
       margin: 20px;
       border-radius: 8px;
       position: relative;
-      z-index: 0;
-      display: none;
-    }
-    section:target {
-      display: block;
+      z-index: -2;
     }
     h2 {
       color: #0E1F2F;
