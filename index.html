@@ -69,51 +69,6 @@
     h2 {
       color: #0E1F2F;
     }
-    .service {
-      margin-bottom: 20px;
-    }
-    .services-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      max-width: 1000px;
-      margin: 0 auto;
-      gap: 20px;
-    }
-    .service-box {
-      background-color: rgba(255,255,255,0.9);
-      padding: 25px;
-      border-radius: 12px;
-      width: 30%;
-      min-width: 280px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      box-sizing: border-box;
-    }
-    .second-row-container {
-      display: flex;
-      justify-content: center;
-      max-width: 700px;
-      margin: 30px auto 0 auto;
-      gap: 20px;
-    }
-    .second-row-box {
-      background-color: rgba(255,255,255,0.9);
-      padding: 25px;
-      border-radius: 12px;
-      width: 45%;
-      min-width: 280px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      box-sizing: border-box;
-    }
-    .contact {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      background-color: rgba(255, 255, 255, 0.9);
-      padding: 20px;
-      border-radius: 8px;
-      max-width: 600px;
-      margin: 0 auto;
-    }
     footer {
       background-color: #0E1F2F;
       color: white;
@@ -122,9 +77,6 @@
       font-size: 0.9rem;
       z-index: -3;
       position: relative;
-    }
-    ul li::marker {
-      color: #EA5A1F;
     }
     strong {
       color: #EA5A1F;
@@ -159,29 +111,42 @@
 
   <section id="services">
     <h2>Services</h2>
-    <div class="services-container">
-      <div class="service-box">
-        <h3>Roof Snapshot</h3>
-        <p>A quick aerial overview of roof condition with high-res images.<br><strong>Price:</strong> $125 (&lt;2500 sq ft) / $175 (&gt;2500 sq ft)</p>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 40px;">
+
+      <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; max-width: 1000px;">
+        <div style="background-color: #ffffffcc; padding: 25px; border-radius: 15px; width: 280px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+          <h3>Roof Snapshot</h3>
+          <p>High-resolution aerial imagery for a quick overview of your roof’s current condition.</p>
+          <p><strong>$125 / $175</strong></p>
+        </div>
+
+        <div style="background-color: #ffffffcc; padding: 25px; border-radius: 15px; width: 280px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+          <h3>Detailed Roof Report</h3>
+          <p>Comprehensive imagery report documenting visible damage or wear, ideal for buyers or maintenance planning.</p>
+          <p><strong>$150 / $200</strong></p>
+        </div>
+
+        <div style="background-color: #ffffffcc; padding: 25px; border-radius: 15px; width: 280px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+          <h3>Realtor Marketing Add-On</h3>
+          <p>Aerial visuals to enhance your listing and give buyers added perspective and confidence.</p>
+          <p><strong>$50 Add-On</strong></p>
+        </div>
       </div>
-      <div class="service-box">
-        <h3>Detailed Roof Report</h3>
-        <p>Thorough inspection photos highlighting any signs of wear, damage, or deterioration.<br><strong>Price:</strong> $150 (&lt;2500 sq ft) / $200 (&gt;2500 sq ft)</p>
+
+      <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; max-width: 800px;">
+        <div style="background-color: #ffffffcc; padding: 25px; border-radius: 15px; width: 280px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+          <h3>Land Survey Flyover</h3>
+          <p>Capture expansive land views with drone flyovers to evaluate terrain, layout, and surroundings.</p>
+          <p><strong>Quote Required</strong></p>
+        </div>
+
+        <div style="background-color: #ffffffcc; padding: 25px; border-radius: 15px; width: 280px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+          <h3>Insurance Claim Documentation</h3>
+          <p>Clear, overhead visuals of damage to support insurance claims and speed up documentation.</p>
+          <p><strong>$150 Flat Rate</strong></p>
+        </div>
       </div>
-      <div class="service-box">
-        <h3>Realtor Marketing Add-On</h3>
-        <p>Drone images & video to boost your listing’s visual appeal.<br><strong>Price:</strong> Add-on $50</p>
-      </div>
-    </div>
-    <div class="second-row-container">
-      <div class="second-row-box">
-        <h3>Land Survey Flyover</h3>
-        <p>Aerial coverage of land or acreage to visualize terrain, layout & surroundings.<br><strong>Price:</strong> Contact for quote</p>
-      </div>
-      <div class="second-row-box">
-        <h3>Insurance Claim Documentation</h3>
-        <p>Photo documentation of damage to support roofing or storm-related claims.<br><strong>Price:</strong> $150 flat rate</p>
-      </div>
+
     </div>
   </section>
 
@@ -192,7 +157,7 @@
 
   <section id="contact">
     <h2>Contact</h2>
-    <div class="contact">
+    <div style="background-color: #ffffffcc; padding: 20px; border-radius: 8px; max-width: 600px; margin: 0 auto;">
       <p><strong>Email:</strong> aaron@skysure.com</p>
       <p><strong>Phone:</strong> 704-885-5795</p>
       <p><strong>Location:</strong> Charlotte & surrounding areas</p>
