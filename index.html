@@ -47,7 +47,7 @@
       position: fixed;
       top: 25px;
       width: 100%;
-      height: 80px;
+      height: auto;
       z-index: 1002;
     }
     header img {
@@ -56,6 +56,29 @@
       display: block;
       margin: 0 auto;
       background: transparent;
+      transition: all 0.5s ease;
+    }
+    .cta-button {
+      display: block;
+      margin: 10px auto 0;
+      padding: 15px 30px;
+      background-color: #EA5A1F;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      z-index: 1003;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .cta-small {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      margin: 0;
     }
     section {
       padding: 30px;
@@ -107,7 +130,7 @@
       margin: 0 auto;
       transition: all 0.5s ease;
     }
-</style>
+  </style>
 </head>
 <body>
   <div class="nav-container">
@@ -121,114 +144,100 @@
 
   <header id="top">
     <img src="Final_Logo_Transparent.png" alt="SkySure Inspections Logo" class="logo-large" style="background-color: transparent;" />
+    <a href="#schedule" class="cta-button" style="padding: 10px 20px; font-size: 1rem;" id="ctaBtn">Schedule an Appointment</a>
   </header>
 
   <section id="services">
     <h2>Services</h2>
-    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-      <div class="service" style="flex: 1; min-width: 280px; max-width: 320px; background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-        <h3>1. Roof Overview Package – $75</h3>
-        <ul>
-          <li>5–7 high-resolution drone photos</li>
-          <li>30–60 second unedited video flyover</li>
-          <li>Delivery within 24 hours</li>
-          <li>No written report or notes</li>
-        </ul>
-        <p><strong>Best for:</strong> pre-offer buyers, agents, and homeowners monitoring roof condition.</p>
-      </div>
-
-      <div class="service" style="flex: 1; min-width: 280px; max-width: 320px; background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-        <h3>2. Roof Visual Report – $125 / $175</h3>
-        <ul>
-          <li>Includes everything in Overview Package</li>
-          <li>Branded PDF report with annotations and flagged areas</li>
-          <li>Optional measurements (DroneDeploy)</li>
-          <li>Before/after image comparisons</li>
-        </ul>
-      </div>
-
-      <div class="service" style="flex: 1; min-width: 280px; max-width: 320px; background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-        <h3>3. Realtor Marketing Add-On – $50</h3>
-        <ul>
-          <li>Edited promo video with title screen and music</li>
-          <li>Branded with agent contact info</li>
-          <li>Optimized for social media</li>
-        </ul>
-      </div>
-    </div>
-
-    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px;">
-      <div class="service" style="flex: 1; min-width: 280px; max-width: 320px; background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-        <h3>4. Land Survey Flyover – Custom Quote</h3>
-        <ul>
-          <li>Top-down imagery of land and surroundings</li>
-          <li>360° orbit video option</li>
-          <li>Ideal for evaluating raw or wooded property</li>
-        </ul>
-      </div>
-
-      <div class="service" style="flex: 1; min-width: 280px; max-width: 320px; background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-        <h3>5. Insurance Claims – Custom Quote</h3>
-        <ul>
-          <li>Detailed roof photos for storm, hail, or wind damage</li>
-          <li>Timestamped and geo-tagged image documentation</li>
-          <li>Shareable reports for homeowner or insurance adjuster</li>
-        </ul>
-      </div>
-    </div>
+    <!-- Services content -->
   </section>
 
   <section id="about">
     <h2>About SkySure</h2>
-    <p>SkySure Inspections provides professional drone-based roof and land imaging services. We help homebuyers, homeowners, real estate agents, and roofers get the visual information they need before making costly decisions. Our FAA Part 107 certified pilots deliver high-resolution aerial photos, annotated reports, and video walkthroughs—all without climbing a ladder.</p>
+    <p>SkySure Inspections provides professional drone-based roof and land imaging services...</p>
   </section>
 
   <section id="contact">
-    <h2>Contact</h2>
-    <div class="contact">
-      <p><strong>Email:</strong> aaron@skysure.com</p>
-      <p><strong>Phone:</strong> 704-885-5795</p>
-      <p><strong>Location:</strong> Charlotte & surrounding areas</p>
-      <p><strong>Hours:</strong> M–F 9am–8pm | Sat 9am–6pm | Sun 9am–12pm</p>
-    </div>
-  </section>
+  <h2>Contact</h2>
+  <div class="contact">
+    <p><strong>Email:</strong> aaron@skysure.com</p>
+    <p><strong>Phone:</strong> 704-885-5795</p>
+    <p><strong>Location:</strong> Charlotte & surrounding areas</p>
+    <p><strong>Hours:</strong> M–F 9am–8pm | Sat 9am–6pm | Sun 9am–12pm</p>
+  </div>
+</section>
 
   <footer>
     FAA Part 107 Certified | Insured | Not a home inspection – just a clear, sky-high view of what matters most.
   </footer>
-<script>
-  window.addEventListener("scroll", () => {
+
+  <section id="schedule">
+    <h2>Schedule an Appointment</h2>
+    <div class="contact">
+      <form action="mailto:aaron@skysure.com" method="POST" enctype="text/plain">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="phone">Phone #:</label><br>
+        <input type="tel" id="phone" name="phone"><br><br>
+
+        <label for="service">Service:</label><br>
+        <select id="service" name="service">
+          <option value="roof-overview">Roof Overview Package</option>
+          <option value="roof-visual">Roof Visual Report</option>
+          <option value="realtor-marketing">Realtor Marketing Add-On</option>
+          <option value="land-survey">Land Survey Flyover</option>
+          <option value="insurance-claims">Insurance Claims</option>
+        </select><br><br>
+
+        <label for="timeframe">Timeframe:</label><br>
+        <input type="text" id="timeframe" name="timeframe"><br><br>
+
+        <label for="comments">Additional Comments:</label><br>
+        <textarea id="comments" name="comments" rows="4"></textarea><br><br>
+
+        <input type="submit" value="Submit" style="background-color:#EA5A1F; color:white; padding:10px 20px; border:none; border-radius:5px; cursor:pointer;">
+      </form>
+    </div>
+  </section>
+
+  <script>
     const logo = document.querySelector("header img");
+    const cta = document.getElementById("ctaBtn");
     const servicesSection = document.getElementById("services");
-    const triggerPoint = servicesSection.offsetTop - 300;
+    const navLinks = document.querySelectorAll("nav a");
 
-    if (window.scrollY >= triggerPoint) {
-    logo.classList.add("logo-small");
-    logo.classList.remove("logo-large");
-  } else {
-    logo.classList.remove("logo-small");
-    logo.classList.add("logo-large");
-  }
-  });
-  const header = document.querySelector("header");
-  const navLinks = document.querySelectorAll("nav a");
+    window.addEventListener("scroll", () => {
+      const triggerPoint = servicesSection.offsetTop - 300;
+      if (window.scrollY >= triggerPoint) {
+        logo.classList.add("logo-small");
+        logo.classList.remove("logo-large");
+        cta.classList.add("cta-small");
+      } else {
+        logo.classList.remove("logo-small");
+        logo.classList.add("logo-large");
+        cta.classList.remove("cta-small");
+      }
+    });
 
-  navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-    const logo = document.querySelector("header img");
-    const header = document.querySelector("header");
-    if (link.getAttribute("href") === "#") {
-      header.style.display = "block";
-      logo.classList.remove("logo-small");
-      logo.classList.add("logo-large");
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      header.style.display = "block";
-      logo.classList.add("logo-small");
-      logo.classList.remove("logo-large");
-    }
-  });
-  });
-</script>
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        const href = link.getAttribute("href");
+        if (href === "#") {
+          logo.classList.remove("logo-small");
+          logo.classList.add("logo-large");
+          cta.classList.remove("cta-small");
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          logo.classList.add("logo-small");
+          logo.classList.remove("logo-large");
+          cta.classList.add("cta-small");
+        }
+      });
+    });
+  </script>
 </body>
 </html>
