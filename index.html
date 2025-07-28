@@ -40,6 +40,21 @@
       margin: 0 15px;
       font-weight: bold;
     }
+    .cta-top-left {
+      position: fixed;
+      top: 75px;
+      left: 20px;
+      z-index: 1003;
+    }
+    .cta-top-left a {
+      display: inline-block;
+      background-color: #EA5A1F;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
     header {
       background-color: transparent;
       padding: 10px 20px;
@@ -118,10 +133,15 @@
 </head>
 <body>
   <div class="nav-container">
-    
-    <div style="text-align: center; margin-top: 10px;">
-      <a href="#" style="display: inline-block; background-color: #EA5A1F; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold;">Schedule an Inspection</a>
-    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+    </nav>
+  </div>
+
+  <div class="cta-top-left">
+    <a href="#">Schedule an Inspection</a>
   </div>
 
   <header id="top">
