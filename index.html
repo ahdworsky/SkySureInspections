@@ -194,23 +194,31 @@
 <script>
   window.addEventListener("scroll", () => {
     const logo = document.querySelector("header img");
-    if (window.scrollY > 100) {
-      logo.classList.add("logo-small");
-      logo.classList.remove("logo-large");
-    } else {
-      logo.classList.add("logo-large");
-      logo.classList.remove("logo-small");
-    }
+    const servicesSection = document.getElementById("services");
+    const triggerPoint = servicesSection.offsetTop - 50;
+
+    if (window.scrollY >= triggerPoint) {
+    logo.classList.add("logo-small");
+    logo.classList.remove("logo-large");
+  } else {
+    logo.classList.remove("logo-small");
+    logo.classList.add("logo-large");
+  }
   });
   const header = document.querySelector("header");
   const navLinks = document.querySelectorAll("nav a");
 
   navLinks.forEach(link => {
     link.addEventListener("click", () => {
+      const logo = document.querySelector("header img");
       if (link.getAttribute("href") === "#") {
         header.style.display = "block";
+        logo.classList.remove("logo-small");
+        logo.classList.add("logo-large");
       } else {
         header.style.display = "none";
+        logo.classList.add("logo-small");
+        logo.classList.remove("logo-large");
       }
     });
   });
