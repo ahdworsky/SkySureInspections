@@ -90,7 +90,19 @@
     strong {
       color: #EA5A1F;
     }
-  </style>
+      .logo-small {
+      max-width: 150px !important;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      transition: all 0.5s ease;
+    }
+    .logo-large {
+      max-width: 300px;
+      margin: 0 auto;
+      transition: all 0.5s ease;
+    }
+</style>
 </head>
 <body>
   <div class="nav-container">
@@ -103,7 +115,7 @@
   </div>
 
   <header id="top">
-    <img src="Final_Logo_Transparent.png" alt="SkySure Inspections Logo" style="background-color: transparent;" />
+    <img src="Final_Logo_Transparent.png" alt="SkySure Inspections Logo" class="logo-large" style="background-color: transparent;" />
   </header>
 
   <section id="services">
@@ -180,6 +192,16 @@
     FAA Part 107 Certified | Insured | Not a home inspection – just a clear, sky-high view of what matters most.
   </footer>
 <script>
+  window.addEventListener("scroll", () => {
+    const logo = document.querySelector("header img");
+    if (window.scrollY > 100) {
+      logo.classList.add("logo-small");
+      logo.classList.remove("logo-large");
+    } else {
+      logo.classList.add("logo-large");
+      logo.classList.remove("logo-small");
+    }
+  });
   const header = document.querySelector("header");
   const navLinks = document.querySelectorAll("nav a");
 
