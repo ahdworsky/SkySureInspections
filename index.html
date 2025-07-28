@@ -20,15 +20,19 @@
       overflow-x: hidden;
       background-color: transparent;
     }
+    .nav-container {
+      background-color: #0E1F2F;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1001;
+    }
     nav {
       background: transparent;
       width: 100%;
       padding: 10px 0;
       text-align: center;
       font-weight: bold;
-      position: fixed;
-      top: 0;
-      z-index: 1001;
     }
     nav a {
       color: white;
@@ -55,7 +59,7 @@
     }
     section {
       padding: 30px;
-      background-color: transparent;
+      background-color: rgba(255,255,255,0.95);
       margin: 20px;
       border-radius: 8px;
       position: relative;
@@ -87,11 +91,13 @@
   </style>
 </head>
 <body>
-  <nav>
-    <a href="#services">Services</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <div class="nav-container">
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
 
   <header>
     <img src="Final_Logo_Transparent.png" alt="SkySure Inspections Logo" style="background-color: transparent;" />
