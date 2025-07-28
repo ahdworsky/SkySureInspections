@@ -94,11 +94,10 @@
       transition: all 0.5s ease;
     }
     .service-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       max-width: 1000px;
+      gap: 30px;
       margin: 0 auto;
     }
     .service-box {
@@ -108,6 +107,12 @@
       width: 280px;
       text-align: center;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .bottom-row {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
     }
   </style>
 </head>
@@ -143,6 +148,8 @@
         <p>Aerial footage to elevate your listing with dramatic views and visual clarity.</p>
         <p><strong>$50 Add-On</strong></p>
       </div>
+    </div>
+    <div class="bottom-row">
       <div class="service-box">
         <h3>Land Survey Flyover</h3>
         <p>Visualize property lines, terrain, and boundaries for undeveloped or large parcels.</p>
