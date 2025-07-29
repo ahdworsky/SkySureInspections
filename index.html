@@ -46,14 +46,44 @@
       left: 20px;
       z-index: 1003;
     }
-    .cta-top-left a {
-      display: inline-block;
+    .cta-top-left button {
       background-color: #EA5A1F;
       color: white;
       padding: 10px 20px;
       border-radius: 5px;
-      text-decoration: none;
       font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+    #appointment-form {
+      display: none;
+      position: fixed;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      z-index: 1005;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    #appointment-form input,
+    #appointment-form select,
+    #appointment-form textarea {
+      width: 100%;
+      margin: 10px 0;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    #appointment-form button {
+      background-color: #0E1F2F;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
     }
     header {
       background-color: transparent;
@@ -141,7 +171,26 @@
   </div>
 
   <div class="cta-top-left">
-    <a href="#services">Schedule an Inspection</a>
+    <button onclick="toggleForm()">Schedule an Inspection</button>
+  </div>
+
+  <div id="appointment-form">
+    <h3>Schedule an Inspection</h3>
+    <form action="mailto:aaron@skysure.com" method="post" enctype="text/plain">
+      <input type="text" name="Name" placeholder="Name" required>
+      <input type="email" name="Email" placeholder="Email" required>
+      <input type="tel" name="Phone" placeholder="Phone #">
+      <select name="Service">
+        <option value="Roof Snapshot">Roof Snapshot</option>
+        <option value="Detailed Roof Report">Detailed Roof Report</option>
+        <option value="Realtor Marketing Add-On">Realtor Marketing Add-On</option>
+        <option value="Land Survey Flyover">Land Survey Flyover</option>
+        <option value="Insurance Claim Documentation">Insurance Claim Documentation</option>
+      </select>
+      <input type="text" name="Timeframe" placeholder="Preferred Timeframe">
+      <textarea name="Comments" placeholder="Additional Comments"></textarea>
+      <button type="submit">Submit</button>
+    </form>
   </div>
 
   <header id="top">
@@ -228,6 +277,11 @@
         }
       });
     });
+
+    function toggleForm() {
+      const form = document.getElementById("appointment-form");
+      form.style.display = form.style.display === "block" ? "none" : "block";
+    }
   </script>
 </body>
 </html>
