@@ -67,6 +67,14 @@
       z-index: 1005;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
+    #appointment-form .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
     #appointment-form input,
     #appointment-form select,
     #appointment-form textarea {
@@ -175,6 +183,7 @@
   </div>
 
   <div id="appointment-form">
+    <span class="close-btn" onclick="toggleForm()">&times;</span>
     <h3>Schedule an Inspection</h3>
     <form action="mailto:aaron@skysure.com" method="post" enctype="text/plain">
       <input type="text" name="Name" placeholder="Name" required>
@@ -249,35 +258,6 @@
   </footer>
 
   <script>
-    const logo = document.querySelector("header img");
-    const servicesSection = document.getElementById("services");
-    const navLinks = document.querySelectorAll("nav a");
-
-    window.addEventListener("scroll", () => {
-      const triggerPoint = servicesSection.offsetTop - 300;
-      if (window.scrollY >= triggerPoint) {
-        logo.classList.add("logo-small");
-        logo.classList.remove("logo-large");
-      } else {
-        logo.classList.remove("logo-small");
-        logo.classList.add("logo-large");
-      }
-    });
-
-    navLinks.forEach(link => {
-      link.addEventListener("click", () => {
-        const href = link.getAttribute("href");
-        if (href === "#") {
-          logo.classList.remove("logo-small");
-          logo.classList.add("logo-large");
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else {
-          logo.classList.add("logo-small");
-          logo.classList.remove("logo-large");
-        }
-      });
-    });
-
     function toggleForm() {
       const form = document.getElementById("appointment-form");
       form.style.display = form.style.display === "block" ? "none" : "block";
