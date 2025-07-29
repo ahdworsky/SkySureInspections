@@ -93,6 +93,28 @@
       font-weight: bold;
       cursor: pointer;
     }
+    #confirmation-popup {
+      display: none;
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      border: 2px solid #0E1F2F;
+      border-radius: 10px;
+      padding: 30px;
+      z-index: 1006;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+    #confirmation-popup .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
     header {
       background-color: transparent;
       padding: 10px 20px;
@@ -181,7 +203,7 @@
   <div id="appointment-form">
     <span class="close-btn" onclick="toggleForm()">&times;</span>
     <h3>Schedule an Inspection</h3>
-    <form action="mailto:aaron@skysure.com" method="post" enctype="text/plain">
+    <form id="inspection-form" action="mailto:aaron@skysure.com" method="post" enctype="text/plain">
       <input type="text" name="Name" placeholder="Name" required>
       <input type="email" name="Email" placeholder="Email" required>
       <input type="tel" name="Phone" placeholder="Phone #">
@@ -242,8 +264,6 @@
     </p>
   </section>
 
-  <div style="height: 300px;"></div>
-
   <footer>
     FAA Part 107 Certified | Insured | Not a home inspection – just a clear, sky-high view of what matters most.<br>
     <br>
@@ -253,10 +273,29 @@
     <strong>Hours:</strong> M–F 9am–8pm | Sat 9am–6pm | Sun 9am–12pm
   </footer>
 
+  <div id="confirmation-popup">
+    <span class="close-btn" onclick="closePopup()">&times;</span>
+    <p><strong>Request received.</strong><br>Someone will contact you shortly.</p>
+  </div>
+
   <script>
     function toggleForm() {
       const form = document.getElementById("appointment-form");
       form.style.display = form.style.display === "block" ? "none" : "block";
+    }
+
+    function closePopup() {
+      document.getElementById("confirmation-popup").style.display = "none";
+    }
+
+    const formElement = document.getElementById("inspection-form");
+    if (formElement) {
+      formElement.addEventListener("submit", function(event) {
+        event.preventDefault();
+        document.getElementById("appointment-form").style.display = "none";
+        document.getElementById("confirmation-popup").style.display = "block";
+        this.reset();
+      });
     }
 
     window.addEventListener('scroll', () => {
