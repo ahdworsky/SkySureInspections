@@ -111,6 +111,14 @@
       background: transparent;
       transition: all 0.5s ease;
     }
+    .logo-fixed-small {
+      max-width: 150px !important;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      margin: 0 !important;
+      z-index: 1004;
+    }
     section {
       padding: 30px;
       background-color: transparent;
@@ -133,18 +141,6 @@
     }
     strong {
       color: #EA5A1F;
-    }
-    .logo-small {
-      max-width: 150px !important;
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      transition: all 0.5s ease;
-    }
-    .logo-large {
-      max-width: 300px;
-      margin: 0 auto;
-      transition: all 0.5s ease;
     }
     .service-grid {
       display: grid;
@@ -203,7 +199,7 @@
   </div>
 
   <header id="top">
-    <img src="Final_Logo_Transparent.png" alt="SkySure Inspections Logo" class="logo-large" style="background-color: transparent;" />
+    <img id="main-logo" src="Final_Logo_Transparent.png" alt="SkySure Inspections Logo" class="logo-large" style="background-color: transparent;" />
   </header>
 
   <section id="services" style="scroll-margin-top: 150px;">
@@ -262,6 +258,19 @@
       const form = document.getElementById("appointment-form");
       form.style.display = form.style.display === "block" ? "none" : "block";
     }
+
+    window.addEventListener('scroll', () => {
+      const logo = document.getElementById('main-logo');
+      const services = document.getElementById('services');
+      const scrollY = window.scrollY;
+      const triggerY = services.offsetTop - 150;
+
+      if (scrollY >= triggerY) {
+        logo.classList.add('logo-fixed-small');
+      } else {
+        logo.classList.remove('logo-fixed-small');
+      }
+    });
   </script>
 </body>
 </html>
