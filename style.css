@@ -98,7 +98,7 @@ p{font-size:14px; line-height:24px; color:#333;}
 .dropdown-menu{background:#fff !important; border-top:none; padding:0; border-bottom: 7px solid #ea5a1f; border-top: 5px solid #ea5a1f; min-width: 200px;}
 .dropdown-menu>li{border-bottom:1px solid #efefef;}
 .dropdown-menu>li:last-child{border-bottom:none;}
-.dropdown-menu>li>a{color:#231f20; font-size:14px; padding:8px 20px 8px 28px; position:relative;}
+.dropdown-menu>li>a{color:#1a2a3a; font-size:14px; padding:8px 20px 8px 28px; position:relative;}
 .dropdown-menu>li>a:hover{color: #FFF; background: #ea5a1f;} 
 .dropdown-menu>li a:before {content: "\f0da"; font-family: 'FontAwesome'; position:absolute; top:9px; left:11px; color:#000;}
 .sticky{top:0; position:fixed; width:100%; z-index:10000; height:80px; border-bottom: 1px solid #eee;}
