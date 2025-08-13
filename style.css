@@ -89,7 +89,7 @@ p{font-size:14px; line-height:24px; color:#333;}
 .logo{padding:6px 0px;}
 .navbar{margin-bottom: 0px;}
 .navigationwrape{float: right;}
-.navbar-default .navbar-nav>li>a{padding: 30px 12px; font-size: 14px; color: #231f20; font-weight: 600;}
+.navbar-default .navbar-nav>li>a{padding: 30px 12px; font-size: 14px; color: #233D4A; font-weight: 600;}
 .navbar-default .navbar-nav>li:hover>a, .navbar-nav li:hover .dropdown-menu{color: #FFF; background: #ea5a1f;}
 .navbar-default .navbar-nav>li>a.active{color: #FFF; background: #ea5a1f;}
 .navbar-default{background: none; border: none;}
