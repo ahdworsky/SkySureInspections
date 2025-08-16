@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +22,38 @@
 <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700" rel="stylesheet">
 
  
+<style>
+.report-card { cursor: pointer; }
+</style>
+<style>
+/* Appointment form must appear above all overlays */
+#appointment-form{ z-index: 2147483647 !important; }
+#modal-backdrop{  z-index: 2147483646 !important; }
+[hidden]{ display: none !important; } /* ensure hidden attribute hides elements */
+</style>
+<style>
+/* Modal centering + backdrop coverage */
+#appointment-form{
+  position: fixed !important;
+  top: 50% !important; left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  max-width: 90% !important; max-height: 90% !important;
+  overflow-y: auto !important;
+  background: #fff !important;
+  border-radius: 10px !important;
+  padding: 20px !important;
+  z-index: 2147483647 !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,.35) !important;
+}
+#modal-backdrop{
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(0,0,0,0.6) !important;
+  z-index: 2147483646 !important;
+}
+/* Graceful focus outline for accessibility */
+#appointment-form :focus{ outline: 2px solid #ea5a1f; outline-offset: 2px; }
+</style>
 </head>
 <body> 
 
@@ -43,10 +74,10 @@
           <div class="navbar navbar-default" role="navigation">
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li > <a href="#home" class=""> Home</a></li>
+                <li > <a href="#home" > Home</a></li>
                 <li> <a href="#services"> Service</a></li>
                 <li> <a href="#about"> About Us</a></li> 
-                <li> <a href="#" class="readmore" onclick="toggleForm()"> Schedule an Inspection</a></li>  
+                <li><a class="js-open-appt" href="#" > Schedule an Inspection</a></li>  
               </ul>
             </div>
             <div class="clearfix"></div>
@@ -66,9 +97,7 @@
   <div class="banner-content">
      <div class="caption lfl large-title tp-resizeme slidertext1"><span style="color: #ea5a1f;">SkySure Inspections</span></div> 
     <div class="caption lfb large-title tp-resizeme slidertext4"  style="color: #fff;">Because What you Can't See Can Cost You</div> 
-    <div class="readmore mb_none">
-      <a href="#" onclick="toggleForm()"> Schedule an Inspection</a>
-    </div>
+    <div class="readmore mb_none"><a class="js-open-appt" href="#" > Schedule an Inspection</a></div>
   </div>
 </section>
 
@@ -80,37 +109,28 @@
   <div class="container">
     <h1>Our <span>Service</span></h1>
     <ul class="row serviceList "> 
-      <li class=" col-md-6 col-sm-6">
+      <li class="report-card col-md-6 col-sm-6" onclick="openSnapshotGallery(0); return false;" role="button" tabindex="0">
         <div class="service-image"><img src="images/one.jpg">
           <div class="hoverlink">
-            <div class="icon"><a href="#"><i class="fa fa-link" aria-hidden="true"></i></a></div>
+            <div class="icon"><a href="javascript:void(0)"><i class="fa fa-link" aria-hidden="true"></i></a></div>
           </div>
         </div>
         <div class="service-details">
-          <h3><a href="#">Roof Snapshot</a></h3>
+          <h3><a href="javascript:void(0)">Roof Snapshot</a></h3>
           <p>High-resolution aerial imagery for a quick overview of your roof’s condition.</p>
           <p><b>$125 (≤ 2,500 sq ft) / $175</b></p>
-          <!-- <div class="readmore"><a href="#">Read More</a></div> -->
+          <!-- <div class="readmore"><a href="javascript:void(0)">Read More</a></div> -->
         </div>
       </li>
-      <li class=" col-md-6 col-sm-6">
-  <div class="service-image">
-    <a href="images/SampleInspectionReport.pdf" target="_blank">
-      <img src="images/two.jpg" alt="Detailed Roof Report">
-    </a>
-    <div class="hoverlink">
-      <div class="icon">
-        <a href="images/SampleInspectionReport.pdf" target="_blank"><i class="fa fa-link" aria-hidden="true"></i></a>
-      </div>
-    </div>
-  </div>
-  <div class="service-details">
-    <h3><a href="images/SampleInspectionReport.pdf" target="_blank">Detailed Roof Report</a></h3>
-    <p>In-depth drone imaging documenting wear or damage—great for buyers or sellers.</p>
-    <p><b>$150 (≤ 2,500 sq ft) / $200</b></p>
-  </div>
-</li>
-
+      <li class="report-card  col-md-6 col-sm-6" onclick="openReportGallery(0); return false;" role="button" tabindex="0">
+        <div class="service-image"><img src="images/two.jpg" alt="Detailed Roof Report"><div class="hoverlink"><div class="icon"><a href="javascript:void(0)"><i class="fa fa-link" aria-hidden="true"></i></a></div></div></div>
+        <div class="service-details">
+          <h3><a href="javascript:void(0)">Detailed Roof Report</a></h3>
+          <p>In-depth drone imaging documenting wear or damage—great for buyers or sellers.</p>
+          <p><b>$150 (≤ 2,500 sq ft) / $200</b></p>
+          <!-- <div class="readmore"><a href="javascript:void(0)">Read More</a></div> -->
+        </div>
+      </li> 
     </ul>
     <ul class="row serviceList second">
       
@@ -186,8 +206,6 @@
 
 
  
- 
-
  
  
 
@@ -287,9 +305,310 @@
 <!-- general script file --> 
 <script src="js/owl.carousel.js"></script> 
 <script type="text/javascript" src="js/script.js"></script>
-<script type="text/javascript" src="js/custom.js"></script>
+<script src="js/custom.js"></script>
+
+<!-- Report Lightbox -->
+<div id="report-overlay" class="report-overlay" hidden>
+  <div class="report-backdrop" data-close="1"></div>
+
+<div class="report-modal" role="dialog" aria-modal="true" aria-label="Sample Inspection Report">
+  <button class="report-close" type="button" aria-label="Close" data-close="1">×</button>
+
+  <div class="report-toolbar">
+    <div class="left">
+      <button class="nav-btn" type="button" id="report-prev" aria-label="Previous page">‹</button>
+      <div class="report-counter" id="report-counter">1 / 4</div>
+      <button class="nav-btn" type="button" id="report-next" aria-label="Next page">›</button>
+    </div>
+    <div class="right">
+      <button class="zoom-btn" id="zoom-out" aria-label="Zoom out">−</button>
+      <span class="zoom-label" id="zoom-label" data-zoom-label>100%</span>
+      <button class="zoom-btn" id="zoom-in" aria-label="Zoom in">+</button>
+      <button class="zoom-btn" id="zoom-reset" aria-label="Reset zoom">Reset</button>
+    </div>
+  </div>
+  <div class="report-frame">
+    <img id="report-image" src="" alt="Sample Report page" />
+  </div>
+
+  <div class="thumbs" id="report-thumbs" aria-label="Page thumbnails"></div>
+</div>
+
+
+<script>
+// --- Report gallery v2.3 (self-contained with live zoom %) ---
+(function () {
+  if (window.__reportV23) return; window.__reportV23 = true;
+
+  window.REPORT_PAGES = window.REPORT_PAGES || [
+    'images/SampleInspectionReport_page1_small.jpg',
+    'images/SampleInspectionReport_page2_small.jpg',
+    'images/SampleInspectionReport_page3_small.jpg',
+    'images/SampleInspectionReport_page4_small.jpg'
+  ];
+
+  var overlay, imgEl, counterEl, idx = 0;
+  var frameEl, prevBtn, nextBtn, thumbsEl;
+  var zoomScale = 1, minZoom = 1, maxZoom = 2.5, zoomStep = 0.25;
+  var isPanning = false, startX = 0, startY = 0, originX = 0, originY = 0;
+  var zoomLabelEl;
+
+  function el(id){ return document.getElementById(id); }
+  function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
+
+  function updateZoomLabel(){
+    if (!zoomLabelEl) zoomLabelEl = el('zoom-label') || el('zoom-reset');
+    if (zoomLabelEl) zoomLabelEl.textContent = Math.round(zoomScale * 100) + '%';
+  }
+
+  function setImage(i){
+    idx = clamp(i, 0, window.REPORT_PAGES.length - 1);
+    if (!imgEl) imgEl = el('report-image');
+    imgEl.src = window.REPORT_PAGES[idx];
+    if (!counterEl) counterEl = el('report-counter');
+    if (counterEl) counterEl.textContent = (idx + 1) + ' / ' + window.REPORT_PAGES.length;
+    if (!prevBtn) prevBtn = el('report-prev');
+    if (!nextBtn) nextBtn = el('report-next');
+    if (prevBtn) prevBtn.disabled = (idx === 0);
+    if (nextBtn) nextBtn.disabled = (idx === window.REPORT_PAGES.length - 1);
+    [idx - 1, idx + 1].forEach(function(n){ if (n>=0 && n<window.REPORT_PAGES.length){ (new Image()).src = window.REPORT_PAGES[n]; } });
+    resetZoom();
+  }
+
+  function onKey(e){
+    if (overlay.hidden) return;
+    if (e.key === 'Escape') closeReportGallery();
+    else if (e.key === 'ArrowRight') nextReport();
+    else if (e.key === 'ArrowLeft') prevReport();
+    else if (e.key === '+') zoomIn();
+    else if (e.key === '-') zoomOut();
+    else if (e.key === '0') resetZoom();
+  }
+
+  function stopScroll(lock){ document.body.style.overflow = lock ? 'hidden' : ''; }
+
+  function applyTransform(){
+    if (!imgEl) imgEl = el('report-image');
+    imgEl.style.transform = 'translate(' + originX + 'px,' + originY + 'px) scale(' + zoomScale + ')';
+    imgEl.style.transformOrigin = 'center center';
+    var fr = document.querySelector('.report-frame');
+    if (fr) fr.classList.toggle('zoomed', zoomScale > 1);
+    updateZoomLabel();
+  }
+
+  function zoomIn(){ zoomScale = clamp(zoomScale + zoomStep, minZoom, maxZoom); applyTransform(); }
+  function zoomOut(){ zoomScale = clamp(zoomScale - zoomStep, minZoom, maxZoom); if (zoomScale === 1){ originX = 0; originY = 0; } applyTransform(); }
+  function resetZoom(){ zoomScale = 1; originX = 0; originY = 0; applyTransform(); }
+
+  function startPan(e){
+    if (zoomScale === 1) return;
+    isPanning = true;
+    var p = (e.touches && e.touches[0]) || e;
+    startX = p.clientX - originX;
+    startY = p.clientY - originY;
+    e.preventDefault && e.preventDefault();
+  }
+  function movePan(e){
+    if (!isPanning) return;
+    var p = (e.touches && e.touches[0]) || e;
+    originX = p.clientX - startX;
+    originY = p.clientY - startY;
+    applyTransform();
+    e.preventDefault && e.preventDefault();
+  }
+  function endPan(){ isPanning = false; }
+
+  window.openReportGallery = function(startIndex){
+    overlay   = el('report-overlay');
+    imgEl     = el('report-image');
+    counterEl = el('report-counter');
+    frameEl   = document.querySelector('.report-frame');
+    thumbsEl  = el('report-thumbs');
+    prevBtn   = el('report-prev');
+    nextBtn   = el('report-next');
+    zoomLabelEl = el('zoom-label') || el('zoom-reset');
+
+    setImage(startIndex || 0);
+    overlay.hidden = false;
+    stopScroll(true);
+    document.addEventListener('keydown', onKey);
+  };
+
+  window.closeReportGallery = function(){
+    if (!overlay) overlay = el('report-overlay');
+    overlay.hidden = true;
+    stopScroll(false);
+    document.removeEventListener('keydown', onKey);
+  };
+
+  window.nextReport = function(){ setImage(idx + 1); };
+  window.prevReport = function(){ setImage(idx - 1); };
+
+  document.addEventListener('DOMContentLoaded', function(){
+    var root = el('report-overlay'); if (!root) return;
+
+    // Close on any [data-close]
+    root.addEventListener('click', function(e){
+      var closeNode = e.target.closest('[data-close]');
+      if (closeNode){ e.preventDefault(); e.stopPropagation(); closeReportGallery(); }
+    });
+
+    // Controls
+    el('report-prev')?.addEventListener('click', function(e){ e.preventDefault(); window.prevReport(); });
+    el('report-next')?.addEventListener('click', function(e){ e.preventDefault(); window.nextReport(); });
+
+    // Zoom controls
+    el('zoom-in')?.addEventListener('click',  function(e){ e.preventDefault(); zoomIn();  });
+    el('zoom-out')?.addEventListener('click', function(e){ e.preventDefault(); zoomOut(); });
+    el('zoom-reset')?.addEventListener('click', function(e){ e.preventDefault(); resetZoom(); });
+
+    // Double-click / double-tap to zoom
+    var lastTap = 0;
+    frameEl = document.querySelector('.report-frame');
+    frameEl.addEventListener('dblclick', function(){ (zoomScale === 1)? zoomIn() : resetZoom(); });
+    frameEl.addEventListener('touchend', function(e){
+      var now = Date.now();
+      if (now - lastTap < 300){ (zoomScale === 1)? zoomIn() : resetZoom(); }
+      lastTap = now;
+    });
+
+    // Drag/pan when zoomed
+    imgEl = el('report-image');
+    frameEl.addEventListener('mousedown', startPan);
+    frameEl.addEventListener('mousemove', movePan);
+    window.addEventListener('mouseup', endPan);
+    frameEl.addEventListener('touchstart', startPan, {passive:false});
+    frameEl.addEventListener('touchmove', function(e){ movePan(e); if (zoomScale>1) e.preventDefault(); }, {passive:false});
+    frameEl.addEventListener('touchend', endPan);
+
+    // Initialize label to 100% on load
+    updateZoomLabel();
+  });
+})();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('.report-card[role="button"]').forEach(function(card){
+    card.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (typeof openReportGallery === 'function') openReportGallery(0);
+      }
+    });
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('li.report-card').forEach(function(card){
+    // Mouse/tap anywhere
+    card.addEventListener('click', function(e){
+      // Don't trigger if the click was on the close/X of some other overlay
+      if (e.target.closest('[data-close]')) return;
+      e.preventDefault();
+      if (typeof openReportGallery === 'function') openReportGallery(0);
+    }, { capture: true });
+    // Keyboard
+    card.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (typeof openReportGallery === 'function') openReportGallery(0);
+      }
+    });
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('li.report-card').forEach(function(card){
+    card.addEventListener('click', function(e){
+      if (e.target.closest('[data-close]')) return;
+      e.preventDefault();
+      if (typeof openReportGallery === 'function') openReportGallery(0);
+    }, { capture: true });
+    card.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (typeof openReportGallery === 'function') openReportGallery(0);
+      }
+    });
+  });
+});
+</script>
+<script>
+// Hardened handler: open form on any "Schedule an Inspection" click and prevent navigation
+document.addEventListener('click', function(e){
+  var a = e.target.closest('a.js-open-appt');
+  if (!a) return;
+  e.preventDefault();
+  if (window.toggleForm) { window.toggleForm(); }
+  else {
+    var form = document.getElementById('appointment-form');
+    var backdrop = document.getElementById('modal-backdrop');
+    if (form && backdrop) { form.removeAttribute('hidden'); backdrop.removeAttribute('hidden'); }
+  }
+});
+</script>
+<script>
+// Modal close/open wiring (backdrop + X + Esc)
+document.addEventListener('DOMContentLoaded', function(){
+  var form = document.getElementById('appointment-form');
+  var backdrop = document.getElementById('modal-backdrop');
+  if (!form || !backdrop) return;
+
+  // Click X
+  form.addEventListener('click', function(e){
+    var btn = e.target.closest('.close-btn');
+    if (btn){ e.preventDefault(); if (window.toggleForm) return toggleForm(); form.setAttribute('hidden',''); backdrop.setAttribute('hidden',''); }
+  });
+
+  // Click outside (backdrop)
+  backdrop.addEventListener('click', function(e){
+    e.preventDefault();
+    if (window.toggleForm) return toggleForm();
+    form.setAttribute('hidden',''); backdrop.setAttribute('hidden','');
+  });
+
+  // Escape key
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && !form.hasAttribute('hidden')){
+      if (window.toggleForm) return toggleForm();
+      form.setAttribute('hidden',''); backdrop.setAttribute('hidden','');
+    }
+  });
+});
+</script>
+<script>
+// === Roof Snapshot gallery images (auto-inserted) ===
+window.SNAPSHOT_PAGES = [
+  "images/01.jpg","images/02.jpg","images/03.jpg","images/04.jpg","images/05.jpg",
+  "images/06.jpg","images/07.jpg","images/08.jpg","images/09.jpg","images/10.jpg",
+  "images/11.jpg","images/12.jpg","images/13.jpg","images/14.jpg","images/15.jpg",
+  "images/16.jpg"
+];
+
+// Open Snapshot gallery using existing viewer (temporarily swap REPORT_PAGES)
+window.openSnapshotGallery = function(startIndex){
+  try {
+    window.__REPORT_PAGES_BACKUP = window.REPORT_PAGES && window.REPORT_PAGES.slice ? window.REPORT_PAGES.slice() : window.REPORT_PAGES;
+    window.REPORT_PAGES = window.SNAPSHOT_PAGES.slice();
+    if (typeof openReportGallery === "function") {
+      openReportGallery(startIndex || 0);
+    }
+  } catch(e) { console && console.error(e); }
+};
+
+// Restore Detailed pages after closing
+(function(){
+  var _origClose = window.closeReportGallery;
+  window.closeReportGallery = function(){
+    if (typeof _origClose === "function") _origClose();
+    if (window.__REPORT_PAGES_BACKUP) {
+      window.REPORT_PAGES = window.__REPORT_PAGES_BACKUP;
+      window.__REPORT_PAGES_BACKUP = null;
+    }
+  };
+})();
+</script>
 </body>
-
 </html>
-
-
