@@ -67,6 +67,26 @@
   } catch (e) {}
 })();
 </script>
+<style>
+/* Click/Tap hint on service cards */
+.service-image { position: relative; overflow: hidden; }
+.serviceList li:hover .hoverlink { display: block; }
+.serviceList li.report-card .hoverhint{
+  position: absolute;
+  left: 10px; bottom: 10px;
+  background: rgba(14,31,47,0.85);
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  display: none;
+  pointer-events: none;
+}
+.serviceList li.report-card:hover .hoverhint,
+.serviceList li.report-card:focus-within .hoverhint { display: inline-block; }
+@media (pointer: coarse) { .hoverhint .click { display:none; } .hoverhint .tap { display:inline; } }
+@media (pointer: fine)   { .hoverhint .click { display:inline; } .hoverhint .tap { display:none; } }
+</style>
 </head>
 <body> 
 
@@ -454,8 +474,8 @@
     document.removeEventListener('keydown', onKey);
   };
 
-  var navLock=false; function navigate(delta){ if(navLock) return; navLock=true; setImage(idx+delta); setTimeout(function(){navLock=false;},120);} window.nextReport=function(){ navigate(1); };
-  window.prevReport=function(){ navigate(-1); };
+  var navLock=false;function navigate(delta){if(navLock)return;navLock=true;setImage(idx+delta);setTimeout(function(){navLock=false;},140);} window.nextReport=function(){navigate(1);};
+  window.prevReport=function(){navigate(-1);};
 
   document.addEventListener('DOMContentLoaded', function(){
     var root = el('report-overlay'); if (!root) return;
@@ -467,10 +487,9 @@
     });
 
     // Controls
-    el('report-prev')?.addEventListener('click', function(e){ e.preventDefault(); window.prevReport(); });
-    el('report-next')?.addEventListener('click', function(e){ e.preventDefault(); window.nextReport(); });
-
-    // Zoom controls
+    document.getElementById("report-prev")?.addEventListener("click", function(e){ e.preventDefault(); window.prevReport(); });
+document.getElementById("report-next")?.addEventListener("click", function(e){ e.preventDefault(); window.nextReport(); });
+// Zoom controls
     el('zoom-in')?.addEventListener('click',  function(e){ e.preventDefault(); zoomIn();  });
     el('zoom-out')?.addEventListener('click', function(e){ e.preventDefault(); zoomOut(); });
     el('zoom-reset')?.addEventListener('click', function(e){ e.preventDefault(); resetZoom(); });
@@ -593,7 +612,12 @@ document.addEventListener('DOMContentLoaded', function(){
 </script>
 <script>
 // === Roof Snapshot gallery images (auto-inserted) ===
-window.SNAPSHOT_PAGES = ["images/01.jpg","images/02.jpg","images/03.jpg","images/04.jpg","images/05.jpg","images/06.jpg","images/07.jpg","images/08.jpg","images/09.jpg","images/10.jpg","images/11.jpg","images/12.jpg","images/13.jpg","images/14.jpg","images/15.jpg","images/16.jpg","images/17.jpg","images/18.jpg","images/19.jpg","images/20.jpg","images/21.jpg","images/22.jpg","images/23.jpg","images/24.jpg","images/25.jpg","images/26.jpg","images/27.jpg","images/28.jpg","images/29.jpg"];
+window.SNAPSHOT_PAGES = [
+  "images/01.jpg","images/02.jpg","images/03.jpg","images/04.jpg","images/05.jpg",
+  "images/06.jpg","images/07.jpg","images/08.jpg","images/09.jpg","images/10.jpg",
+  "images/11.jpg","images/12.jpg","images/13.jpg","images/14.jpg","images/15.jpg",
+  "images/16.jpg"
+];
 
 // Open Snapshot gallery using existing viewer (temporarily swap REPORT_PAGES)
 window.openSnapshotGallery = function(startIndex){
