@@ -1285,3 +1285,11 @@ a.js-open-appt:focus{
   color:#fff !important;
 }
 a.js-open-appt:active{ transform: translateY(1px); }
+
+/* Hide the link icon overlay on service cards */
+.serviceList li.report-card .hoverlink {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
