@@ -1286,10 +1286,20 @@ a.js-open-appt:focus{
 }
 a.js-open-appt:active{ transform: translateY(1px); }
 
-/* Hide the link icon overlay on service cards */
-.serviceList li.report-card .hoverlink {
+/* Hide the link icon overlay on service cards — robust */
+.serviceList li .service-image .hoverlink,
+.serviceList li:hover .service-image .hoverlink,
+.serviceList li.report-card .service-image .hoverlink,
+.serviceList li.report-card:hover .service-image .hoverlink {
   display: none !important;
   opacity: 0 !important;
   visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Also hide the icon element itself (belt & suspenders) */
+.serviceList .hoverlink .icon,
+.serviceList .hoverlink i {
+  display: none !important;
 }
 
