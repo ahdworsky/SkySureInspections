@@ -87,6 +87,19 @@
 @media (pointer: coarse) { .hoverhint .click { display:none; } .hoverhint .tap { display:inline; } }
 @media (pointer: fine)   { .hoverhint .click { display:inline; } .hoverhint .tap { display:none; } }
 </style>
+<style>
+/* Hide the chain-link icon overlay but keep the hint */
+.serviceList li .service-image .hoverlink,
+.serviceList li:hover .service-image .hoverlink,
+.serviceList li.report-card .service-image .hoverlink,
+.serviceList li.report-card:hover .service-image .hoverlink {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+.serviceList .hoverhint{ display:inline-block !important; }
+</style>
 </head>
 <body> 
 
@@ -145,8 +158,8 @@
       <li class="report-card col-md-6 col-sm-6" onclick="openSnapshotGallery(0); return false;" role="button" tabindex="0">
         <div class="service-image"><img src="images/one.jpg">
           <div class="hoverlink">
-            <div class="icon"><a href="javascript:void(0)"><i class="fa fa-link" aria-hidden="true"></i></a><span class="hoverhint" aria-hidden="true"><span class="click">Click to view</span><span class="tap">Tap to view</span></span></div>
-          </div>
+            <div class="icon"><a href="javascript:void(0)"><i class="fa fa-link" aria-hidden="true"></i></a><span class="tap">Tap to view</span></span></div>
+          </div><span class="hoverhint" aria-hidden="true"><span class="click">Click to view</span>
         </div>
         <div class="service-details">
           <h3><a href="javascript:void(0)">Roof Snapshot</a></h3>
@@ -156,7 +169,7 @@
         </div>
       </li>
       <li class="report-card  col-md-6 col-sm-6" onclick="openReportGallery(0); return false;" role="button" tabindex="0">
-        <div class="service-image"><img src="images/two.jpg" alt="Detailed Roof Report"><div class="hoverlink"><div class="icon"><a href="javascript:void(0)"><i class="fa fa-link" aria-hidden="true"></i></a><span class="hoverhint" aria-hidden="true"><span class="click">Click to view</span><span class="tap">Tap to view</span></span></div></div></div>
+        <div class="service-image"><img src="images/two.jpg" alt="Detailed Roof Report"><div class="hoverlink"><div class="icon"><a href="javascript:void(0)"><i class="fa fa-link" aria-hidden="true"></i></a><span class="tap">Tap to view</span></span></div></div><span class="hoverhint" aria-hidden="true"><span class="click">Click to view</span></div>
         <div class="service-details">
           <h3><a href="javascript:void(0)">Detailed Roof Report</a></h3>
           <p>In-depth drone imaging documenting wear or damage—great for buyers or sellers.</p>
@@ -519,55 +532,6 @@ document.getElementById("report-next")?.addEventListener("click", function(e){ e
 })();
 </script>
 <script>
-document.addEventListener('DOMContentLoaded', function(){
-  document.querySelectorAll('.report-card[role="button"]').forEach(function(card){
-    card.addEventListener('keydown', function(e){
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        if (typeof openReportGallery === 'function') openReportGallery(0);
-      }
-    });
-  });
-});
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-  document.querySelectorAll('li.report-card').forEach(function(card){
-    // Mouse/tap anywhere
-    card.addEventListener('click', function(e){
-      // Don't trigger if the click was on the close/X of some other overlay
-      if (e.target.closest('[data-close]')) return;
-      e.preventDefault();
-      if (typeof openReportGallery === 'function') openReportGallery(0);
-    }, { capture: true });
-    // Keyboard
-    card.addEventListener('keydown', function(e){
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        if (typeof openReportGallery === 'function') openReportGallery(0);
-      }
-    });
-  });
-});
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-  document.querySelectorAll('li.report-card').forEach(function(card){
-    card.addEventListener('click', function(e){
-      if (e.target.closest('[data-close]')) return;
-      e.preventDefault();
-      if (typeof openReportGallery === 'function') openReportGallery(0);
-    }, { capture: true });
-    card.addEventListener('keydown', function(e){
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        if (typeof openReportGallery === 'function') openReportGallery(0);
-      }
-    });
-  });
-});
-</script>
-<script>
 // Hardened handler: open form on any "Schedule an Inspection" click and prevent navigation
 document.addEventListener('click', function(e){
   var a = e.target.closest('a.js-open-appt');
@@ -612,12 +576,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </script>
 <script>
 // === Roof Snapshot gallery images (auto-inserted) ===
-window.SNAPSHOT_PAGES = [
-  "images/01.jpg","images/02.jpg","images/03.jpg","images/04.jpg","images/05.jpg",
-  "images/06.jpg","images/07.jpg","images/08.jpg","images/09.jpg","images/10.jpg",
-  "images/11.jpg","images/12.jpg","images/13.jpg","images/14.jpg","images/15.jpg",
-  "images/16.jpg"
-];
+window.SNAPSHOT_PAGES = ["images/01.jpg","images/02.jpg","images/03.jpg","images/04.jpg","images/05.jpg","images/06.jpg","images/07.jpg","images/08.jpg","images/09.jpg","images/10.jpg","images/11.jpg","images/12.jpg","images/13.jpg","images/14.jpg","images/15.jpg","images/16.jpg"];
 
 // Open Snapshot gallery using existing viewer (temporarily swap REPORT_PAGES)
 window.openSnapshotGallery = function(startIndex){
