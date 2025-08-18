@@ -1303,3 +1303,32 @@ a.js-open-appt:active{ transform: translateY(1px); }
   display: none !important;
 }
 
+/* === SkySure patch: hide link icon overlay & keep hint visible === */
+/* Hide the link-icon overlay layer entirely */
+.serviceList li .service-image .hoverlink,
+.serviceList li:hover .service-image .hoverlink,
+.serviceList li.report-card .service-image .hoverlink,
+.serviceList li.report-card:hover .service-image .hoverlink {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Also hide inner elements to be safe */
+.serviceList .hoverlink .icon,
+.serviceList .hoverlink i,
+.serviceList .hoverlink a {
+  display: none !important;
+}
+
+/* Belt-and-suspenders: hide FA link icon wherever it appears */
+i.fa-link, .fa.fa-link { display: none !important; }
+
+/* Ensure hint can show */
+.serviceList li.report-card .hoverhint{ display:inline-block; }
+.serviceList li.report-card:hover .hoverhint,
+.serviceList li.report-card:focus-within .hoverhint{ display:inline-block; }
+
+/* Positioning safety for image container (if not already present) */
+.service-image{ position:relative; overflow:hidden; }
