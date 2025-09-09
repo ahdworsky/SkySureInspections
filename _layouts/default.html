@@ -102,18 +102,18 @@
 </style>
 <!-- Preload banner (mobile/tablet) to improve LCP -->
 <link rel="preload" as="image"
-      imagesrcset="images/banner2-480.webp 480w, images/banner2-768.webp 768w"
+      imagesrcset="/images/banner2-480.webp 480w, //images/banner2-768.webp 768w"
       imagesizes="(max-width: 520px) 100vw, (max-width: 900px) 100vw">
 <link rel="preload" as="image"
-      imagesrcset="images/banner2-480.jpg 480w, images/banner2-768.jpg 768w"
+      imagesrcset="/images/banner2-480.jpg 480w, //images/banner2-768.jpg 768w"
       imagesizes="(max-width: 520px) 100vw, (max-width: 900px) 100vw">
 <style>
 /* Serve smaller banner images on mobile/tablet without touching JS */
 @media (max-width: 520px){
   .banenr-section{
     background-image: image-set(
-      url("images/banner2-480.webp") type("image/webp"),
-      url("images/banner2-480.jpg") type("image/jpeg")
+      url("/images/banner2-480.webp") type("image/webp"),
+      url("/images/banner2-480.jpg") type("image/jpeg")
     );
     background-size: cover;
     background-position: center;
@@ -122,8 +122,8 @@
 @media (min-width: 521px) and (max-width: 900px){
   .banenr-section{
     background-image: image-set(
-      url("images/banner2-768.webp") type("image/webp"),
-      url("images/banner2-768.jpg") type("image/jpeg")
+      url("/images/banner2-768.webp") type("image/webp"),
+      url("/images/banner2-768.jpg") type("image/jpeg")
     );
     background-size: cover;
     background-position: center;
@@ -134,7 +134,7 @@
 /* Simple, compatible banner background for phones/tablets */
 @media (max-width: 520px){
   .banenr-section{
-    background-image: url("images/banner2-480.jpg") !important;
+    background-image: url("/images/banner2-480.jpg") !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
@@ -142,7 +142,7 @@
 }
 @media (min-width: 521px) and (max-width: 900px){
   .banenr-section{
-    background-image: url("images/banner2-768.jpg") !important;
+    background-image: url("/images/banner2-768.jpg") !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
@@ -230,7 +230,7 @@ body.noscroll{overflow:hidden!important;}
 <div class="footer-wrap">
 <div class="container">
 <div class="footer-content">
-<div class="footer-logo"><a aria-label="SkySure Inspections home" href="{{ '/index.html' | relative_url }}""><img alt="SkySure Inspections" src="src="{{ '/images/logo.png' | relative_url }}""/></a></div>
+<div class="footer-logo"><a aria-label="SkySure Inspections home" href="{{ '/index.html' | relative_url }}""><img alt="SkySure Inspections" src="src="{{ '/images/footer-logo.png' | relative_url }}""/></a></div>
 <p>FAA Part 107 Certified | Insured | Not a home inspection – just a clear, sky-high view of what matters most. </p>
 <div class="address_info">
 <div class="call-us">Email: <a href="{{ '/mailto:support@skysureinspections.com' | relative_url }}"">support@skysureinspections.com</a></div>
