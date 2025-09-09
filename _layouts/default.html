@@ -12,15 +12,15 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <title>{{ page.title | default: site.title }} | {{ site.title }}</title>
 <!-- Fav Icon -->
-<link href="href="{{ '/favicon.ico' | relative_url }}"" rel="shortcut icon"/>
+<link href="{{ '/favicon.ico' | relative_url }}"" rel="shortcut icon"/>
 <!-- Bootstrap -->
 <!-- font-awesome.min -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-<link href="href="{{ '/css/bootstrap.min.css' | relative_url }}"" rel="stylesheet"/>
-<link href="href="{{ '/css/font-awesome.css' | relative_url }}"" rel="stylesheet"/>
-<link href="href="{{ '/css/owl.carousel.css' | relative_url }}"" rel="stylesheet"/>
-<link href="href="{{ '/css/style.css' | relative_url }}"" rel="stylesheet"/>
-<link href="href="{{ '/css/settings.css' | relative_url }}"" rel="stylesheet"/>
+<link href="{{ '/css/bootstrap.min.css' | relative_url }}"" rel="stylesheet"/>
+<link href="{{ '/css/font-awesome.css' | relative_url }}"" rel="stylesheet"/>
+<link href="{{ '/css/owl.carousel.css' | relative_url }}"" rel="stylesheet"/>
+<link href="{{ '/css/style.css' | relative_url }}"" rel="stylesheet"/>
+<link href="{{ '/css/settings.css' | relative_url }}"" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap" rel="stylesheet"/>
 <style>
@@ -209,11 +209,11 @@ body.noscroll{overflow:hidden!important;}
 <div class="navbar navbar-default" role="navigation">
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
-<li><a href="href="{{ '/#home' | relative_url }}""> Home</a></li>
-<li><a href="href="{{ '/#services' | relative_url }}""> Services</a></li>
-<li><a href="href="{{ '/#about' | relative_url }}""> About Us</a></li>
-<li><a href="href="{{ '/blog/' | relative_url }}""> Blog</a></li>
-<li><a class="js-open-appt" href="href="{{ '/#' | relative_url }}""> Schedule an Inspection</a></li>
+<li><a href="{{ '/' | relative_url }}#home"> Home</a></li>
+<li><a href="{{ '/' | relative_url }}#services"> Services</a></li>
+<li><a href="{{ '/' | relative_url }}#about"> About Us</a></li>
+<li><a href="{{ '/blog/' | relative_url }}"> Blog</a></li>
+<li><a class="js-open-appt" href="#"> Schedule an Inspection</a></li>
 </ul>
 </div>
 <div class="clearfix"></div>
@@ -230,11 +230,11 @@ body.noscroll{overflow:hidden!important;}
 <div class="footer-wrap">
 <div class="container">
 <div class="footer-content">
-<div class="footer-logo"><a aria-label="SkySure Inspections home" href="href="{{ '/index.html' | relative_url }}""><img alt="SkySure Inspections" src="src="{{ '/images/footer-logo.png' | relative_url }}""/></a></div>
+<div class="footer-logo"><a aria-label="SkySure Inspections home" href="{{ '/index.html' | relative_url }}""><img alt="SkySure Inspections" src="src="{{ '/images/footer-logo.png' | relative_url }}""/></a></div>
 <p>FAA Part 107 Certified | Insured | Not a home inspection – just a clear, sky-high view of what matters most. </p>
 <div class="address_info">
-<div class="call-us">Email: <a href="href="{{ '/mailto:support@skysureinspections.com' | relative_url }}"">support@skysureinspections.com</a></div>
-<div class="fax">Phone: <a href="href="{{ '/tel:(980) 494-3993' | relative_url }}"">(980) 494-3993</a></div>
+<div class="call-us">Email: <a href="{{ '/mailto:support@skysureinspections.com' | relative_url }}"">support@skysureinspections.com</a></div>
+<div class="fax">Phone: <a href="{{ '/tel:(980) 494-3993' | relative_url }}"">(980) 494-3993</a></div>
 <div class="footer-address">Hours: M–F 9am–8pm | Sat 9am–6pm | Sun 9am–12pm</div>
 </div>
 </div>
@@ -299,7 +299,7 @@ body.noscroll{overflow:hidden!important;}
 </div>
 </div>
 <!--page scroll start-->
-<div class="page-scroll scrollToTop"><a href="href="{{ '/#' | relative_url }}""><i aria-hidden="true" class="fa fa-arrow-up"></i></a></div>
+<div class="page-scroll scrollToTop"><a href="{{ '/#' | relative_url }}""><i aria-hidden="true" class="fa fa-arrow-up"></i></a></div>
 <!--page scroll start-->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script defer src="src="{{ '/js/jquery-2.1.4.min.js' | relative_url }}""></script>
@@ -370,7 +370,7 @@ body.noscroll{overflow:hidden!important;}
 <source src="" type="video/mp4"/>
         Your browser does not support the video tag.
       </video>
-<a href="href="{{ '/#' | relative_url }}"" id="video-open-tab" style="display:block;margin-top:8px;text-align:center;color:#fff;text-decoration:underline;" target="_blank">Open video in new tab</a>
+<a href="{{ '/#' | relative_url }}"" id="video-open-tab" style="display:block;margin-top:8px;text-align:center;color:#fff;text-decoration:underline;" target="_blank">Open video in new tab</a>
 </div>
 </div>
 </div>
