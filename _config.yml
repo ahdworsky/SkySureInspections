@@ -1,6 +1,6 @@
 title: SkySure Inspections
-url: "https://skysureinspections.com"
-baseurl: ""  # empty for root domain
+url: "https://www.skysureinspections.com"
+baseurl: ""  # root domain
 plugins:
   - jekyll-feed
   - jekyll-sitemap
