@@ -20,8 +20,8 @@
 <link href="css/bootstrap.min.css" rel="stylesheet"/>
 <link href="css/font-awesome.css" rel="stylesheet"/>
 <link href="css/owl.carousel.css" rel="stylesheet"/>
-<link href="css/style.css" rel="stylesheet"/>
 <link href="css/settings.css" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap" rel="stylesheet"/>
 <style>
@@ -192,6 +192,39 @@ body.noscroll{overflow:hidden!important;}
   }
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long does a drone roof inspection take?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Most inspections take 30–45 minutes onsite, with your full report delivered within 24 hours." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to fly drones over my home?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. SkySure is FAA Part 107 Certified and follows strict safety protocols and flight regulations." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use your inspection report for an insurance claim?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Reports include high-resolution images and detailed notes that insurers accept for storm-damage or repair claims." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why not just have a roofer inspect my roof?",
+      "acceptedAnswer": { "@type": "Answer", "text": "SkySure provides an unbiased, third-party report so you know the truth before committing to repairs." }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does an inspection cost?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Pricing varies by property and detail level, but most inspections are a small investment that can prevent costly repairs." }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <!-- Overlay for the two doc cards -->
@@ -221,6 +254,7 @@ body.noscroll{overflow:hidden!important;}
 <li> <a href="#services"> Service</a></li>
 <li> <a href="#about"> About Us</a></li>
 <li> <a href="blog"> Blog</a></li>
+<li> <a href="#faq"> FAQ</a></li>  
 <li><a class="js-open-appt" href="#"> Schedule an Inspection</a></li>
 </ul>
 </div>
@@ -328,6 +362,37 @@ body.noscroll{overflow:hidden!important;}
 </div>
 </div>
 <!--About start-->
+<!-- ===== SkySure: Top 5 FAQs (home) ===== -->
+<div class="faqs" id="faq">
+  <div class="container" id="skysure-faq">
+    <h2>Frequently Asked Questions</h2>
+    <ul class="faqs-service">
+      <li>
+        <h4 tabindex="0" role="button" aria-expanded="false">How long does a drone roof inspection take?</h4>
+        <p>Most inspections take <strong>30–45 minutes onsite</strong>, with your full report delivered within <strong>24 hours</strong>.</p>
+      </li>
+      <li>
+        <h4 tabindex="0" role="button" aria-expanded="false">Is it safe to fly drones over my home?</h4>
+        <p>Yes. SkySure is <strong>FAA Part 107 Certified</strong> and follows strict safety protocols and flight regulations to protect your property.</p>
+      </li>
+      <li>
+        <h4 tabindex="0" role="button" aria-expanded="false">Can I use your inspection report for an insurance claim?</h4>
+        <p>Absolutely. Our reports include <strong>high-resolution images and detailed notes</strong> that insurers accept to support storm-damage or repair claims.</p>
+      </li>
+      <li>
+        <h4 tabindex="0" role="button" aria-expanded="false">Why not just have a roofer inspect my roof?</h4>
+        <p>Roofers are great for repairs, but may miss small issues—or focus on what they can sell. SkySure provides an <strong>unbiased, third-party report</strong> so you know the truth before committing to repairs.</p>
+      </li>
+      <li>
+        <h4 tabindex="0" role="button" aria-expanded="false">How much does an inspection cost?</h4>
+        <p>Pricing depends on property size and detail level, but most inspections are <strong>a fraction of the cost of roof repairs</strong>—a small investment that can save thousands by catching problems early.</p>
+      </li>
+    </ul>
+    <div class="mt-3">
+      <a href="faq.html" class="btn btn-outline-primary">See all FAQs</a>
+    </div>
+  </div>
+</div>
 <!--Footer start-->
 <div class="footer-wrap">
 <div class="container">
@@ -597,6 +662,43 @@ body.noscroll{overflow:hidden!important;}
     $ov.addEventListener('click', onBackdrop);
   });
 })();
+</script>
+<script>
+  (function(){
+    function initFAQ(){
+      var $ = window.jQuery; if(!$) return;
+      var $root = $('#skysure-faq');
+      if(!$root.length) return;
+      var $headers = $root.find('.faqs-service h4');
+      var speed = 200;
+
+      // Ensure initial state: all collapsed
+      $headers.removeClass('active').attr('aria-expanded','false').next('p').hide();
+
+      function activate($h){
+        var $p = $h.next('p');
+        var open = $h.hasClass('active');
+        // close others
+        $headers.filter('.active').not($h).removeClass('active').attr('aria-expanded','false').next('p').slideUp(speed);
+        if(open){
+          $h.removeClass('active').attr('aria-expanded','false');
+          $p.slideUp(speed);
+        } else {
+          $h.addClass('active').attr('aria-expanded','true');
+          $p.slideDown(speed);
+        }
+      }
+
+      $headers.on('click', function(){ activate($(this)); });
+      $headers.on('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault(); activate($(this));
+        }
+      });
+    }
+    if(document.readyState !== 'loading') { initFAQ(); }
+    else { document.addEventListener('DOMContentLoaded', initFAQ); }
+  })();
 </script>
 </body>
 </html>
