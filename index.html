@@ -329,6 +329,37 @@ body.noscroll{overflow:hidden!important;}
 </div>
 </div>
 <!--About start-->
+<!-- ===== SkySure: Top 5 FAQs (home) ===== -->
+<section class="faqs" id="faq">
+  <div class="container" id="skysure-faq">
+    <h2>Frequently Asked Questions</h2>
+    <ul class="faqs-service">
+      <li>
+        <h4 tabindex="0" role="button" aria-expanded="false">How long does a drone roof inspection take?</h4>
+        <p>Most inspections take <strong>30–45 minutes onsite</strong>, with your full report delivered within <strong>24 hours</strong>.</p>
+      </li>
+      <li>
+        <h4 tabindex="0" role="button" aria-expanded="false">Is it safe to fly drones over my home?</h4>
+        <p>Yes. SkySure is <strong>FAA Part 107 Certified</strong> and follows strict safety protocols and flight regulations to protect your property.</p>
+      </li>
+      <li>
+        <h4 tabindex="0" role="button" aria-expanded="false">Can I use your inspection report for an insurance claim?</h4>
+        <p>Absolutely. Our reports include <strong>high-resolution images and detailed notes</strong> that insurers accept to support storm-damage or repair claims.</p>
+      </li>
+      <li>
+        <h4 tabindex="0" role="button" aria-expanded="false">Why not just have a roofer inspect my roof?</h4>
+        <p>Roofers are great for repairs, but may miss small issues—or focus on what they can sell. SkySure provides an <strong>unbiased, third-party report</strong> so you know the truth before committing to repairs.</p>
+      </li>
+      <li>
+        <h4 tabindex="0" role="button" aria-expanded="false">How much does an inspection cost?</h4>
+        <p>Pricing depends on property size and detail level, but most inspections are <strong>a fraction of the cost of roof repairs</strong>—a small investment that can save thousands by catching problems early.</p>
+      </li>
+    </ul>
+    <div class="mt-3">
+      <a href="faq.html" class="btn btn-outline-primary">See all FAQs</a>
+    </div>
+  </div>
+</section>
 <!--Footer start-->
 <div class="footer-wrap">
 <div class="container">
@@ -599,47 +630,26 @@ body.noscroll{overflow:hidden!important;}
   });
 })();
 </script>
-
 <script>
 (function(){
-  function headerOffset(){
-    var $ = window.jQuery;
-    var h = 0;
-    var parts = $('.header:visible, .navbar:visible, header:visible, .navigation:visible');
-    parts.each(function(){ h = Math.max(h, $(this).outerHeight() || 0); });
-    if(!h || h < 50) h = 70; /* fallback */
-    if(window.matchMedia && window.matchMedia('(max-width: 991px)').matches) h += 30;
-    return h;
-  }
-  function smoothScrollToTarget($target){
-    var $ = window.jQuery;
-    if(!$target || !$target.length) return;
-    var top = $target.offset().top - headerOffset();
-    $('html, body').stop(true).animate({scrollTop: Math.max(0, top)}, 320);
-  }
-  function bindFAQAnchor(){
+  function initFAQ(){
     var $ = window.jQuery; if(!$) return;
-    var $coll = $('.navbar-collapse');
-    function go(){
-      smoothScrollToTarget($('#faq'));
+    var $root = $('#skysure-faq'); if(!$root.length) return;
+    var $headers = $root.find('.faqs-service h4');
+    var speed = 180;
+    $headers.removeClass('active').attr('aria-expanded','false').next('p').hide();
+    function activate($h){
+      var $p = $h.next('p'); var open = $h.hasClass('active');
+      $headers.filter('.active').not($h).removeClass('active').attr('aria-expanded','false').next('p').slideUp(speed);
+      if(open){ $h.removeClass('active').attr('aria-expanded','false'); $p.slideUp(speed); }
+      else { $h.addClass('active').attr('aria-expanded','true'); $p.slideDown(speed); }
     }
-    $(document).on('click', 'a[href="#faq"], a[href="#FAQ"]', function(e){
-      e.preventDefault();
-      if($coll.length && $coll.hasClass('in')){
-        $coll.one('hidden.bs.collapse', function(){ setTimeout(go, 10); });
-        $coll.collapse('hide');
-      } else {
-        go();
-      }
-    });
-    if(location.hash && location.hash.toLowerCase() === '#faq'){
-      setTimeout(function(){ go(); }, 60);
-    }
+    $headers.on('click', function(){ activate($(this)); });
+    $headers.on('keydown', function(e){ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); activate($(this)); }});
   }
-  if(document.readyState !== 'loading') bindFAQAnchor();
-  else document.addEventListener('DOMContentLoaded', bindFAQAnchor);
+  if(document.readyState!=='loading'){ initFAQ(); }
+  else{ document.addEventListener('DOMContentLoaded', initFAQ); }
 })();
 </script>
-
 </body>
 </html>
