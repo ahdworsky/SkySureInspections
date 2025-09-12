@@ -205,5 +205,47 @@
     ]
   }
   </script>
+
+<script>
+(function(){
+  function headerOffset(){
+    var $ = window.jQuery;
+    var h = 0;
+    var parts = $('.header:visible, .navbar:visible, header:visible, .navigation:visible');
+    parts.each(function(){ h = Math.max(h, $(this).outerHeight() || 0); });
+    if(!h || h < 50) h = 70; /* fallback */
+    if(window.matchMedia && window.matchMedia('(max-width: 991px)').matches) h += 30;
+    return h;
+  }
+  function smoothScrollToTarget($target){
+    var $ = window.jQuery;
+    if(!$target || !$target.length) return;
+    var top = $target.offset().top - headerOffset();
+    $('html, body').stop(true).animate({scrollTop: Math.max(0, top)}, 320);
+  }
+  function bindFAQAnchor(){
+    var $ = window.jQuery; if(!$) return;
+    var $coll = $('.navbar-collapse');
+    function go(){
+      smoothScrollToTarget($('#faq'));
+    }
+    $(document).on('click', 'a[href="#faq"], a[href="#FAQ"]', function(e){
+      e.preventDefault();
+      if($coll.length && $coll.hasClass('in')){
+        $coll.one('hidden.bs.collapse', function(){ setTimeout(go, 10); });
+        $coll.collapse('hide');
+      } else {
+        go();
+      }
+    });
+    if(location.hash && location.hash.toLowerCase() === '#faq'){
+      setTimeout(function(){ go(); }, 60);
+    }
+  }
+  if(document.readyState !== 'loading') bindFAQAnchor();
+  else document.addEventListener('DOMContentLoaded', bindFAQAnchor);
+})();
+</script>
+
 </body>
 </html>
