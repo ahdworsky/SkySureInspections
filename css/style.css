@@ -1350,11 +1350,8 @@ i.fa-link, .fa.fa-link { display: none !important; }
   #faq, #skysure-faq { scroll-margin-top: 120px; }
 }
 
-
 /* === Anchor scroll offset fix for fixed header === */
-#faq, #skysure-faq { scroll-margin-top: 100px; }
-#faq:target, #skysure-faq:target { scroll-margin-top: 100px !important; }
+#faq, #skysure-faq { scroll-margin-top: 110px; }
 @media (max-width: 991px){
-  #faq, #skysure-faq { scroll-margin-top: 140px; }
-  #faq:target, #skysure-faq:target { scroll-margin-top: 140px !important; }
+  #faq, #skysure-faq { scroll-margin-top: 150px; }
 }
