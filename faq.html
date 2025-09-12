@@ -4,7 +4,6 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>FAQ – SkySure Inspections</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
   <link href="css/bootstrap.min.css" rel="stylesheet"/>
   <link href="css/font-awesome.css" rel="stylesheet"/>
   <link href="css/owl.carousel.css" rel="stylesheet"/>
@@ -133,13 +132,11 @@
       var $headers = $root.find('.faqs-service h4');
       var speed = 200;
 
-      // Ensure initial state: all collapsed
       $headers.removeClass('active').attr('aria-expanded','false').next('p').hide();
 
       function activate($h){
         var $p = $h.next('p');
         var open = $h.hasClass('active');
-        // close others
         $headers.filter('.active').not($h).removeClass('active').attr('aria-expanded','false').next('p').slideUp(speed);
         if(open){
           $h.removeClass('active').attr('aria-expanded','false');
@@ -160,6 +157,44 @@
     if(document.readyState !== 'loading') { initFAQ(); }
     else { document.addEventListener('DOMContentLoaded', initFAQ); }
   })();
+</script>
+  <script>
+(function(){
+  function getOffset(){
+    var $ = window.jQuery;
+    var h = 0;
+    var cand = $('.navbar:visible, header:visible, .header:visible, .navigation:visible, .main-nav:visible');
+    cand.each(function(){ h = Math.max(h, $(this).outerHeight() || 0); });
+    if(!h || h < 50) h = 70;
+    if(window.matchMedia && window.matchMedia('(max-width: 991px)').matches) h += 30;
+    return h;
+  }
+  function smoothScrollTo($target){
+    var $ = window.jQuery; if(!$target.length) return;
+    var top = $target.offset().top - getOffset();
+    $('html, body').stop(true).animate({scrollTop: Math.max(0, top)}, 300);
+  }
+  function setup(){
+    var $ = window.jQuery; if(!$) return;
+    var $coll = $('.navbar-collapse');
+    $(document).on('click', 'a[href="#faq"], a[href="#FAQ"]', function(ev){
+      var isOpen = $coll.length && $coll.hasClass('in');
+      ev.preventDefault();
+      var $target = $('#faq');
+      if(isOpen){
+        $coll.one('hidden.bs.collapse', function(){ setTimeout(function(){ smoothScrollTo($target); }, 10); });
+        $coll.collapse('hide');
+      } else {
+        smoothScrollTo($target);
+      }
+    });
+    if(location.hash && location.hash.toLowerCase() === '#faq'){
+      setTimeout(function(){ smoothScrollTo($('#faq')); }, 50);
+    }
+  }
+  if(document.readyState !== 'loading') setup();
+  else document.addEventListener('DOMContentLoaded', setup);
+})();
 </script>
   <script type="application/ld+json">
   {
