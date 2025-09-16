@@ -6,7 +6,6 @@ categories: blog
 description: "Spot hidden roof damage in 5 minutes using high-resolution drone + thermal imaging—quickly identify hail, wind, and moisture issues."
 ---
 
-Discover how drone inspections can catch roof problems early—saving you thousands in repairs—with high-resolution aerial imagery and expert analysis.
 <!--more-->
 
 ![heroImage](https://cdn.marblism.com/CqTfJkDtj7M.webp)
