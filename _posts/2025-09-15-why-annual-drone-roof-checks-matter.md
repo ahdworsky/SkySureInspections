@@ -6,6 +6,7 @@ categories: blog
 description: "Spot hidden roof damage in 5 minutes using high-resolution drone + thermal imaging—quickly identify hail, wind, and moisture issues."
 ---
 
+In just five minutes, high-res drone and thermal imaging reveal hail, wind, and moisture damage you can’t see from the ground—safer, faster, and fully documented.
 <!--more-->
 
 ![heroImage](https://cdn.marblism.com/CqTfJkDtj7M.webp)
