@@ -1355,3 +1355,12 @@ i.fa-link, .fa.fa-link { display: none !important; }
 @media (max-width: 991px){
   #faq, #skysure-faq { scroll-margin-top: 150px; }
 }
+
+/* === SkySure testimonials star ratings === */
+.stars{ display:inline-block; margin-bottom:10px; color:#fcc642; } /* gold */
+.stars .fa{ margin-right:2px; font-size:16px; }
+.testimonials blockquote{ position:relative; }
+.testimonials blockquote .stars{ display:block; }
+@media (min-width: 992px){
+  .testimonials .col-md-4 blockquote{ min-height: 170px; }
+}
