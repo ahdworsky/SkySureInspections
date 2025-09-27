@@ -1364,3 +1364,8 @@ i.fa-link, .fa.fa-link { display: none !important; }
 @media (min-width: 992px){
   .testimonials .col-md-4 blockquote{ min-height: 170px; }
 }
+.caption.centered {
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  text-align: center !important;
+}
