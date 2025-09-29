@@ -14,8 +14,7 @@ title: Blog
         <div class="text-muted" style="font-size:.95rem;">
           {{ post.date | date: "%B %e, %Y" }}
         </div>
-        {% if post.excerpt %}
-        <p style="margin:.5rem 0 0;">{{ post.excerpt | strip_html | truncate: 160 }}</p>
+       
         {% endif %}
       </li>
     {% endfor %}
