@@ -1,9 +1,12 @@
 ---
 layout: default
 title: Blog
+permalink: /blog/
 ---
+
 <main class="container" style="max-width:960px;padding:32px 16px; margin-top:1in;">
   <h1 class="mb-4">Blog</h1>
+
   {% if site.posts and site.posts.size > 0 %}
     <ul style="list-style:none;padding:0;margin:0;">
       {% for post in site.posts %}
@@ -18,4 +21,6 @@ title: Blog
       {% endfor %}
     </ul>
   {% else %}
-    <p>No posts yet. Add one in <code>_posts
+    <p>No posts yet. Add one in <code>_posts/</code> (e.g., <code>YYYY-MM-DD-title.md</code>).</p>
+  {% endif %}
+</main>
