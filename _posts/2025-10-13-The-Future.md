@@ -5,10 +5,10 @@ date: 2025-10-13 09:00:00 -0400
 description: "Discover how drone roof inspections from SkySure make property maintenance faster, safer, and smarter than ever before."
 image: /assets/images/posts/drone-inspections-future.jpg
 tags: [technology, homeowners, realtors, roofing, drone-inspection]
-author: SkySure Inspections
-excerpt: "Drones are redefining how we inspect and protect homes—delivering safety, precision, and real-time roof insights that keep homeowners one step ahead."
-permalink: /blog/drone-roof-inspections-future-of-maintenance/
 ---
+
+Drones are redefining how we inspect and protect homes—delivering safety, precision, and real-time roof insights that keep homeowners one step ahead.
+<!--more-->
 
 # Drone Roof Inspections: The Future of Property Maintenance
 
