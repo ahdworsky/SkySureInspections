@@ -9,9 +9,6 @@ show_title: false
 
 ---
 
-Drones are redefining how we inspect and protect homes—delivering safety, precision, and real-time roof insights that keep homeowners one step ahead.
-<!--more-->
-
 # Drone Roof Inspections: The Future of Property Maintenance
 
 ### 🚀 A New Era of Home Protection
