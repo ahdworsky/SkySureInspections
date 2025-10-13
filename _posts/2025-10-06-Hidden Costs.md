@@ -10,9 +10,6 @@ excerpt: "Small, hidden problems become big bills. A quick drone inspection can 
 permalink: /blog/hidden-costs-of-ignoring-your-roof/
 ---
 
-Hidden roof damage can quietly drain homeowners’ finances, turning minor issues into costly repairs. This week’s blog explains how SkySure’s drone inspections detect unseen problems early—saving money, preventing insurance disputes, and protecting home value.
-<!--more-->
-
 # The Hidden Costs of Ignoring Your Roof
 
 ### 🏠 Protecting What Protects You
