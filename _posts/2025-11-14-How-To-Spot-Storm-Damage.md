@@ -1,11 +1,10 @@
 ---
 layout: post
+title: "How To Spot Storm Damage From Your Living Room In 5 Minutes"
 date: 2025-11-14 09:00:00 -0400
-description: "Spotting Storm Damage from Your Living Room is Easy..."
----
-
-<!-- Remove the leading H1 line -->
-## How to Spot Storm Damage from Your Living Room in 5 Minutes
+description: "Discover how you can spot damage to your roof from your living room."
+tags: [technology, homeowners, realtors, roofing, drone-inspection]
+show_title: false
 ...
 
 ![heroImage](https://cdn.marblism.com/p4eIYdZRdtN.webp)
