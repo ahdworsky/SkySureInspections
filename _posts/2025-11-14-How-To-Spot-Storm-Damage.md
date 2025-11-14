@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Ladders vs. Drones: Why Smart Homeowners Are Choosing the Safer Way to Inspect Roofs"
-date: 2025-10-27 09:00:00 -0400
+title: "How To Spot Storm Damage From Your Living Room In 5 Minutes"
+date: 2025-11-14 09:00:00 -0400
 description: "Traditional ladder inspections are risky and outdated..."
 image: /assets/img/blog/ladders-vs-drones-safer-roof-inspections.webp
 ---
