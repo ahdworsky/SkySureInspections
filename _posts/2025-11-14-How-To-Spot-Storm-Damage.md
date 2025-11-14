@@ -3,7 +3,6 @@ layout: post
 title: "How To Spot Storm Damage From Your Living Room In 5 Minutes"
 date: 2025-11-14 09:00:00 -0400
 description: "Spotting Storm Damage Is Easy..."
-image: /assets/img/blog/ladders-vs-drones-safer-roof-inspections.webp
 ---
 
 ![heroImage](https://cdn.marblism.com/p4eIYdZRdtN.webp)
