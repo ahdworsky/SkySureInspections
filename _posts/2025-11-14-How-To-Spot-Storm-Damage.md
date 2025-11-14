@@ -1,6 +1,5 @@
 ---
 layout: post
-title: "How To Spot Storm Damage From Your Living Room In 5 Minutes"
 date: 2025-11-14 09:00:00 -0400
 description: "Spotting Storm Damage from Your Living Room is Easy..."
 ---
