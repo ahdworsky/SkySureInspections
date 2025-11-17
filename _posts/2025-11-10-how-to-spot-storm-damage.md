@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Why Every Homeowner Should Get an Annual Drone Roof Inspection"
+title: "How To Spot Storm Damage In 5 Minutes From Your Living Room"
 date: 2025-11-10 09:00:00 -0500
 description: "A simple, visual guide explaining why yearly drone roof inspections can save you thousands."
 ---
