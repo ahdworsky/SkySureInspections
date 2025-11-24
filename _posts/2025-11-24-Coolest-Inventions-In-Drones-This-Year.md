@@ -1,4 +1,9 @@
-# The Coolest Innovations in Drones This Year (And What They Mean for Homeowners & Roofers)
+---
+layout: post
+title: "The Coolest Innovations in Drones This Year (And What They Mean for Homeowners & Roofers"
+date: 2025-11-24 09:00:00 -0500
+description: "A quick look at the latest drone innovations from this year, and how they’re making life easier for homeowners and roofers."
+--- 
 
 ![heroImage](https://cdn.marblism.com/A_r6cHJaOlI.webp)
 
