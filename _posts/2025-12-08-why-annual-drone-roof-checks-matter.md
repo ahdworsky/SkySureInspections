@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How to Spot Hidden Roof Damage in 5 Minutes Using High-Resolution Drone Imagery"
-date: 2025-12-09
+date: 2025-12-08
 categories: blog
 description: "Spot hidden roof damage in 5 minutes using high-resolution drone + thermal imaging—quickly identify hail, wind, and moisture issues."
 ---
