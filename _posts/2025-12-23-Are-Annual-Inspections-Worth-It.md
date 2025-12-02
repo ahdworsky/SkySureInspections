@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Are Annual Roof Inspections Worth It? Here's What 500+ Homeowners Discovered"
-date: 2025-09-29
+date: 2025-12-23
 categories: blog
 ---
 
