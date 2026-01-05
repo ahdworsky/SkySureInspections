@@ -168,7 +168,7 @@ body.noscroll{overflow:hidden!important;}
     flex-direction: column;
   }
 
-  /* Title: reserve exactly two lines so "Roof Snapshot" matches "Detailed Roof Report" */
+  /* Title: reserve exactly two lines so tier titles stay aligned */
   .serviceList:first-of-type .report-card .service-details h3,
   .serviceList:first-of-type .report-card .service-details h4{
     line-height: 1.25;
@@ -222,7 +222,7 @@ body.noscroll{overflow:hidden!important;}
 <li> <a href="#about"> About Us</a></li>
 <li> <a href="blog"> Blog</a></li>
 <li> <a href="#faq"> FAQ</a></li>  
-<li><a class="js-open-appt" href="#"> Schedule an Inspection</a></li>
+<li><a class="js-open-appt" href="#"> Schedule a Roof Report</a></li>
 </ul>
 </div>
 <div class="clearfix"></div>
@@ -236,39 +236,130 @@ body.noscroll{overflow:hidden!important;}
 <!-- Header end -->
 <section class="banenr-section" id="home">
 <div class="banner-content">
-<div class="caption lfl large-title tp-resizeme slidertext1"><span style="color: #ea5a1f;">SkySure Inspections</span></div>
-<div class="caption lfb large-title tp-resizeme slidertext4" style="color: #fff;">Because What You Can't See Can Cost You</div>
-<div class="readmore mb_none"><a class="js-open-appt" href="#"> Schedule an Inspection</a></div>
+<div class="caption lfl large-title tp-resizeme slidertext1">
+  <span style="color: #ea5a1f;">SkySure Inspections</span>
+</div>
+
+<div class="caption lfb large-title tp-resizeme slidertext4" style="color:#fff;">
+  Roof Condition Reports (Drone-Based)
+</div>
+
+<div class="caption lfb tp-resizeme slidertext4" style="color:#fff; font-size:18px; margin-top:8px;">
+  Because What You Can't See, Can Cost You
+</div>
+
+<div class="readmore mb_none">
+  <a class="js-open-appt" href="#" data-service="Annual Roof Condition Report (Founding Member Rate)">Get My Roof Condition Report</a>
+</div>
 </div>
 </section>
 <!--service start-->
 <div class="service-wrap" id="services">
 <div class="container">
-<h2>Our <span>Services</span></h2>
-<ul class="row serviceList">
-<li class="report-card col-md-6 col-sm-6" data-action="snapshot" data-index="0" tabindex="0">
-<div class="service-image"><img class="ri" loading="lazy" alt="Roof Snapshot preview" src="images/one.jpg"/ data-src="images/one.jpg">
-<div class="hoverlink">
-<div class="icon"><a href="javascript:void(0)"><i aria-hidden="true" class="fa fa-link"></i></a><span class="tap">Tap to view</span></div>
-</div><span aria-hidden="true" class="hoverhint"><span class="click">Click to view</span>
-</span></div>
-<div class="service-details">
-<h3><a href="javascript:void(0)">Roof Snapshot</a></h3>
-<p>High-resolution aerial imagery for a quick overview of your roof’s condition.</p>
-<p><b>$125 (≤ 2,500 sq ft) / $175</b></p>
-<!-- <div class="readmore"><a href="javascript:void(0)">Read More</a></div> -->
-</div>
-</li>
-<li class="report-card col-md-6 col-sm-6" data-action="report" data-index="0" tabindex="0">
-<div class="service-image"><img class="ri" loading="lazy" alt="Detailed Roof Report preview" src="images/two.jpg"/ data-src="images/two.jpg"><div class="hoverlink"><div class="icon"><a href="javascript:void(0)"><i aria-hidden="true" class="fa fa-link"></i></a><span class="tap">Tap to view</span></div></div><span aria-hidden="true" class="hoverhint"><span class="click">Click to view</span></span></div>
-<div class="service-details">
-<h3><a href="javascript:void(0)">Detailed Roof Report</a></h3>
-<p>In-depth drone imaging documenting wear or damage—great for buyers or sellers.</p>
-<p><b>$150 (≤ 2,500 sq ft) / $200</b></p>
-<!-- <div class="readmore"><a href="javascript:void(0)">Read More</a></div> -->
-</div>
-</li>
+<h2>Roof Condition Report <span>Tiers</span></h2>
+<p class="sub" style="max-width:860px;margin:0 auto 12px;color:#6c7a89;">Choose your monitoring frequency. Each visit includes high-resolution drone imagery, date-stamped documentation, and a clear summary of observable conditions.</p>
+<div class="founding-inline"><span class="founding-badge">Founding Member Rate</span><span class="founding-text">Limited during initial rollout. Founding Members keep their original rate even after pricing increases.</span></div>
+<ul class="row serviceList tierList">
+  <li class="report-card col-md-4 col-sm-6" tabindex="0">
+    <div class="service-details tier-card">
+      <h3><a href="javascript:void(0)">Annual</a></h3>
+      <p>Best for proactive homeowners who want a yearly check-in and documented roof history.</p>
+      <p class="tier-price"><b>$100</b> <span class="tier-cycle">/ year</span></p>
+      <div class="readmore"><a class="js-open-appt" href="#" data-service="Annual Roof Condition Report (Founding Member Rate)">Choose Annual</a></div>
+      <p class="disclaimer-mini">Reports document observable conditions only and are not a licensed home or roofing inspection.</p>
+    </div>
+  </li>
+
+  <li class="report-card col-md-4 col-sm-6" tabindex="0">
+    <div class="service-details tier-card tier-popular">
+      <div class="tier-badge">Most Popular</div>
+      <h3><a href="javascript:void(0)">Semi-Annual</a></h3>
+      <p>Two reports per year (spring/fall) to track changes across seasons and storms.</p>
+      <p class="tier-price"><b>$150</b> <span class="tier-cycle">/ year</span></p>
+      <div class="readmore"><a class="js-open-appt" href="#" data-service="Semi-Annual Roof Condition Report (Founding Member Rate)">Choose Semi-Annual</a></div>
+      <p class="disclaimer-mini">Reports document observable conditions only and are not a licensed home or roofing inspection.</p>
+    </div>
+  </li>
+
+  <li class="report-card col-md-4 col-sm-6" tabindex="0">
+    <div class="service-details tier-card">
+      <h3><a href="javascript:void(0)">Quarterly</a></h3>
+      <p>Four reports per year—ideal for aging roofs, heavy tree cover, or storm-prone areas.</p>
+      <p class="tier-price"><b>$200</b> <span class="tier-cycle">/ year</span></p>
+      <div class="readmore"><a class="js-open-appt" href="#" data-service="Quarterly Roof Condition Report (Founding Member Rate)">Choose Quarterly</a></div>
+      <p class="disclaimer-mini">Reports document observable conditions only and are not a licensed home or roofing inspection.</p>
+    </div>
+  </li>
 </ul>
+
+<!-- What’s Included + Founding Members -->
+<section class="included-wrap" id="included" style="padding:25px 0 10px 0;">
+  <div class="title" style="margin-bottom:20px;">
+    <span><strong>What’s Included</strong> in Every Roof Condition Report</span>
+    <h2 style="margin-top:6px;">Clear Visual Documentation. Easy Summary.</h2>
+    <p>Because What You Can't See, Can Cost You</p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <ul class="about-service" style="margin-top:0;">
+        <li>High-resolution aerial imagery</li>
+        <li>Observations of visible wear, damage, or changes</li>
+        <li>Date-stamped visual documentation</li>
+        <li>A clear, easy-to-understand summary</li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <div class="notice-box">
+        <strong>Important:</strong>
+        Reports document observable conditions only and are not a licensed home or roofing inspection.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="founding" style="padding:10px 0 30px 0;">
+  <div class="title" style="margin-bottom:18px;">
+    <span><strong>New:</strong> Roof Condition Monitoring Program</span>
+    <h2 style="margin-top:6px;">Founding Member Program</h2>
+    <p>Enroll through the form—no long-term contract. Cancel anytime.</p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-7">
+      <ul class="about-service" style="margin-top:0;">
+        <li>Preferred Founding Member pricing</li>
+        <li>Priority scheduling</li>
+        <li>Recurring Roof Condition Reports (annual, semi-annual, or quarterly)</li>
+        <li>Documented roof history for maintenance planning, insurance, or resale</li>
+        <li>No long-term contract — cancel anytime</li>
+      </ul>
+    </div>
+    <div class="col-md-5">
+      <div class="notice-box" style="background:#fff;">
+        <strong>Founding Member Availability</strong>
+        <p style="margin-top:10px;">
+          Founding Member pricing is limited and offered only during the initial rollout of the SkySure Roof Condition Monitoring Program.
+        </p>
+        <hr style="margin:12px 0;">
+        <p style="margin:0;">
+          <strong>Once closed:</strong><br>
+          Enrollment remains open<br>
+          Pricing increases for new members<br>
+          Founding Members retain their original rate
+        </p>
+        <div style="margin-top:14px;">
+          <a class="js-open-appt" href="#" data-service="Founding Member Program (Need help choosing)">Join as a Founding Member</a>
+        </div>
+        <p class="disclaimer-mini" style="margin-top:10px;">
+          Reports document observable conditions only and are not a licensed home or roofing inspection.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<h2 style="margin-top:40px;">Additional <span>Services</span></h2>
+<p class="sub" style="max-width:860px;margin:0 auto 20px;color:#6c7a89;">Optional add-ons and specialty services.</p>
 <ul class="row serviceList second">
 <li class="report-card col-md-4 col-sm-6" data-action="video" data-src="images/LandSurveyFinal.mp4" tabindex="0">
 <div class="service-image"><img class="ri" loading="lazy" alt="Land Survey Flyover preview" src="images/five.jpg"/ data-src="images/five.jpg">
@@ -319,7 +410,7 @@ body.noscroll{overflow:hidden!important;}
 <div class="row align-items-center">
 <div class="col-md-7">
 <h2>About <span>SkySure</span></h2>
-<p>SkySure Inspections was created to give buyers, sellers, homeowners, and real estate agents peace of mind by offering a bird’s‑eye view of one of the most expensive components of a home—the roof. With drone technology, we provide sharp aerial imagery that shows roof condition, potential damage, and layout before making an offer or listing a property. Our mission is to deliver fast, visual confidence from above.</p>
+<p>SkySure Inspections helps buyers, sellers, homeowners, and real estate agents gain confidence in the roof—one of the most expensive components of a home. Our drone-based Roof Condition Reports provide sharp, date-stamped imagery and a clear summary of observable conditions so you can plan maintenance, document changes over time, or share visuals with a contractor, insurer, or future buyer.</p>
 <!-- <div class="readmore"><a href="#">Read More</a></div> -->
 </div>
 <div class="col-md-5">
@@ -385,24 +476,24 @@ body.noscroll{overflow:hidden!important;}
 
     <ul class="faqs-service">
       <li>
-        <h4 tabindex="0" role="button" aria-expanded="false">How long does a drone roof inspection take?</h4>
-        <p>Most inspections take <strong>30–45 minutes onsite</strong>, with your full report delivered within <strong>24 hours</strong>.</p>
+        <h4 tabindex="0" role="button" aria-expanded="false">How long does a Roof Condition Report take?</h4>
+        <p>Most roof reports take <strong>30–45 minutes onsite</strong>, with your full report delivered within <strong>24 hours</strong>.</p>
       </li>
       <li>
         <h4 tabindex="0" role="button" aria-expanded="false">Is it safe to fly drones over my home?</h4>
         <p>Yes. SkySure is <strong>FAA Part 107 Certified</strong> and follows strict safety protocols and flight regulations to protect your property.</p>
       </li>
       <li>
-        <h4 tabindex="0" role="button" aria-expanded="false">Can I use your inspection report for an insurance claim?</h4>
+        <h4 tabindex="0" role="button" aria-expanded="false">Can I use your roof report for an insurance claim?</h4>
         <p>Absolutely. Our reports include <strong>high-resolution images and detailed notes</strong> that insurers accept to support storm-damage or repair claims.</p>
       </li>
       <li>
         <h4 tabindex="0" role="button" aria-expanded="false">Why not just have a roofer inspect my roof?</h4>
-        <p>Roofers are great for repairs, but may miss small issues—or focus on what they can sell. SkySure provides an <strong>unbiased, third-party report</strong> so you know the truth before committing to repairs.</p>
+        <p>Roofers are great for repairs, but may miss small issues—or focus on what they can sell. SkySure provides an <strong>unbiased, third-party Roof Condition Report</strong> so you know the truth before committing to repairs.</p>
       </li>
       <li>
-        <h4 tabindex="0" role="button" aria-expanded="false">How much does an inspection cost?</h4>
-        <p>Pricing depends on property size and detail level, but most inspections are <strong>a fraction of the cost of roof repairs</strong>—a small investment that can save thousands by catching problems early.</p>
+        <h4 tabindex="0" role="button" aria-expanded="false">How much does a Roof Condition Report cost?</h4>
+        <p>Pricing depends on your preferred frequency, but most roof reports are <strong>a fraction of the cost of roof repairs</strong>—a small investment that can save thousands by catching problems early.</p>
       </li>
     </ul>
 
@@ -417,7 +508,7 @@ body.noscroll{overflow:hidden!important;}
 <div class="container">
 <div class="footer-content">
 <div class="footer-logo"><a aria-label="SkySure Inspections home" href="index.html"><img alt="SkySure Inspections" src="images/footer-logo.png"/></a></div>
-<p>FAA Part 107 Certified | Insured | Not a home inspection – just a clear, sky-high view of what matters most. </p>
+<p>FAA Part 107 Certified | Insured | Roof Condition Reports (Drone-Based). Reports document observable conditions only and are not a licensed home or roofing inspection.</p>
 <div class="address_info">
 <div class="call-us">Email: <a href="mailto:support@skysureinspections.com">support@skysureinspections.com</a></div>
 <div class="fax">Phone: <a href="tel:(980) 494-3993">(980) 494-3993</a></div>
@@ -432,7 +523,7 @@ body.noscroll{overflow:hidden!important;}
 <!-- Appointment form modal -->
 <div aria-describedby="appt-desc" aria-labelledby="appt-title" aria-modal="true" hidden="" id="appointment-form" role="dialog" tabindex="-1">
 <button aria-label="Close form" class="close-btn">×</button>
-<h3 id="appt-title">Schedule an Inspection</h3>
+<h3 id="appt-title">Schedule a Roof Report</h3>
 <p class="sr-only" id="appt-desc">
     Provide your contact information and service preference to request an appointment.
   </p>
@@ -453,12 +544,15 @@ body.noscroll{overflow:hidden!important;}
 <div class="field">
 <label for="service">Service</label>
 <select id="service" name="Service">
-<option value="Roof Snapshot">Roof Snapshot</option>
-<option value="Detailed Roof Report">Detailed Roof Report</option>
+<option value="Annual Roof Condition Report (Founding Member Rate)">$100 — Annual Roof Condition Report (Founding Member Rate)</option>
+<option value="Semi-Annual Roof Condition Report (Founding Member Rate)">$150 — Semi-Annual Roof Condition Report (Founding Member Rate)</option>
+<option value="Quarterly Roof Condition Report (Founding Member Rate)">$200 — Quarterly Roof Condition Report (Founding Member Rate)</option>
+<option value="Founding Member Program (Need help choosing)">Founding Member Program (Need help choosing)</option>
+<option value="Insurance Claim Documentation">Insurance Claim Documentation</option>
 <option value="Realtor Marketing Add-On">Realtor Marketing Add-On</option>
 <option value="Land Survey Flyover">Land Survey Flyover</option>
-<option value="Insurance Claim Documentation">Insurance Claim Documentation</option>
 </select>
+<p class=\"disclaimer-mini\" style=\"margin-top:8px;\">Reports document observable conditions only and are not a licensed home or roofing inspection.</p>
 </div>
 <div class="field full">
 <label for="timeframe">Preferred Timeframe</label>
@@ -500,7 +594,7 @@ body.noscroll{overflow:hidden!important;}
 <!-- Report Lightbox -->
 <div class="report-overlay" hidden="" id="report-overlay">
 <div class="report-backdrop" data-close="1"></div>
-<div aria-label="Sample Inspection Report" aria-modal="true" class="report-modal" role="dialog">
+<div aria-label="Sample Roof Condition Report" aria-modal="true" class="report-modal" role="dialog">
 <button aria-label="Close" class="report-close" data-close="1" type="button">×</button>
 <div class="report-toolbar">
 <div class="left">
