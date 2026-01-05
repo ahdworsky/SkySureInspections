@@ -1420,3 +1420,73 @@ i.fa-link, .fa.fa-link { display: none !important; }
   line-height:1.4;
   margin:10px 0 0;
 }
+
+
+/* ============================
+   SEO/Conversion Enhancements
+   ============================ */
+.hero-cta-row{
+  display:flex; gap:12px; align-items:center; justify-content:center;
+  flex-wrap:wrap; margin-top:18px;
+}
+.btn-primary-cta{
+  background:#ea5a1f !important; color:#fff !important;
+  padding:12px 20px; font-weight:800; text-transform:uppercase;
+  text-decoration:none !important; display:inline-block;
+}
+.btn-secondary-cta{
+  background:rgba(255,255,255,.15); color:#fff !important;
+  border:2px solid rgba(255,255,255,.65);
+  padding:10px 18px; font-weight:800; text-transform:uppercase;
+  text-decoration:none !important; display:inline-block;
+}
+.btn-secondary-cta:hover{ background:#fff; color:#000 !important; }
+.btn-text-cta{
+  color:#fff !important; text-decoration:underline !important;
+  font-weight:700; padding:10px 6px;
+}
+.hero-trust{
+  margin:18px auto 0;
+  display:flex; gap:16px; justify-content:center; flex-wrap:wrap;
+  color:#fff; max-width:1000px;
+}
+.trust-item{
+  background:rgba(0,0,0,.35);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:999px;
+  padding:8px 12px;
+  display:flex; gap:8px; align-items:center;
+  font-weight:700; font-size:13px;
+}
+.trust-item i{ color:#ea5a1f; }
+
+.how-steps .how-card{
+  background:#fff; border-radius:12px; padding:18px;
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  border:1px solid #eee; min-height: 180px;
+  text-align:left;
+}
+.how-num{
+  width:36px; height:36px; border-radius:999px;
+  display:flex; align-items:center; justify-content:center;
+  background:#ea5a1f; color:#fff; font-weight:900;
+  margin-bottom:10px;
+}
+.how-card h3{ margin-top:0; }
+
+.tier-table{
+  width:100%; border-collapse:collapse; background:#fff;
+  border-radius:12px; overflow:hidden;
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+}
+.tier-table th, .tier-table td{
+  padding:12px 14px; border-bottom:1px solid #eee; text-align:center;
+}
+.tier-table th:first-child, .tier-table td:first-child{ text-align:left; font-weight:800; }
+.tier-table thead th{ background:#0E1F2F; color:#fff; }
+.tier-table i.fa-check{ color:#ea5a1f; }
+.center-cta{ display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
+
+@media (max-width: 520px){
+  .trust-item{ width:100%; justify-content:center; }
+}
