@@ -1365,3 +1365,58 @@ i.fa-link, .fa.fa-link { display: none !important; }
   .testimonials .col-md-4 blockquote{ min-height: 170px; }
 }
 
+
+
+/* ============================
+   Roof Condition Report Tiers
+   ============================ */
+
+.founding-inline{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin:10px auto 22px;
+  max-width:900px;
+}
+.founding-badge{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  background:#fff;
+  border:2px solid #ea5a1f;
+  color:#ea5a1f;
+  font-weight:800;
+  font-size:12px;
+  letter-spacing:.4px;
+  text-transform:uppercase;
+}
+.founding-text{ color:#6c7a89; font-size:14px; }
+
+.tierList .service-details{ background:#fff; }
+.tier-card{ position:relative; text-align:left; }
+.tier-price{ font-size:26px; margin:10px 0 12px; }
+.tier-cycle{ font-size:14px; color:#666; font-weight:600; }
+.tier-badge{
+  position:absolute; top:12px; right:12px;
+  background:#ea5a1f; color:#fff; font-weight:800;
+  padding:6px 10px; border-radius:6px; font-size:12px;
+}
+.tier-popular{ border:2px solid #ea5a1f; border-radius:8px; }
+
+.notice-box{
+  background:#f9fafb;
+  border-left:4px solid #ea5a1f;
+  padding:14px 16px;
+  border-radius:8px;
+  color:#333;
+}
+.notice-box p{ color:#333; }
+
+.disclaimer-mini{
+  font-size:12px;
+  color:#6c7a89;
+  line-height:1.4;
+  margin:10px 0 0;
+}
