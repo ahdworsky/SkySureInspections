@@ -12,13 +12,40 @@
     // ---------- Appointment Form ----------
     var formEl = $('#appointment-form');
     var backdropEl = $('#modal-backdrop');
+
+    var serviceSel = $('#service');
+
+    function setServiceFromTrigger(el){
+      if(!serviceSel || !el) return;
+      var desired = el.getAttribute('data-service');
+      if(!desired) return;
+
+      // Try exact match first
+      var opts = serviceSel.options;
+      for (var i=0; i<opts.length; i++){
+        if ((opts[i].value || '').trim() === desired.trim()){
+          serviceSel.value = opts[i].value;
+          return;
+        }
+      }
+
+      // Fallback: partial match against option text
+      desired = desired.toLowerCase();
+      for (var j=0; j<opts.length; j++){
+        var txt = (opts[j].text || '').toLowerCase();
+        if (txt.indexOf(desired) !== -1){
+          serviceSel.value = opts[j].value;
+          return;
+        }
+      }
+    }
     function openForm(){ if(formEl && backdropEl){ formEl.hidden=false; backdropEl.hidden=false; lockScroll(true); } }
     function closeForm(){ if(formEl && backdropEl){ formEl.hidden=true; backdropEl.hidden=true; lockScroll(false); } }
 
     // Open
     document.addEventListener('click', function(e){
       var openBtn = e.target.closest && e.target.closest('a.js-open-appt');
-      if(openBtn){ e.preventDefault(); openForm(); }
+      if(openBtn){ e.preventDefault(); setServiceFromTrigger(openBtn); openForm(); }
     });
     // Close via backdrop / X
     document.addEventListener('click', function(e){
