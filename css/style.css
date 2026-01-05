@@ -1468,3 +1468,8 @@ i.fa-link, .fa.fa-link { display: none !important; }
 @media (max-width: 480px){
   .btn-primary-cta, .btn-secondary-cta{ width: 92%; text-align:center; }
 }
+
+
+/* Center CTA blocks (Roof Condition Report page) */
+.center-cta{ text-align:center; }
+.center-cta a{ display:inline-block; }
