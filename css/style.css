@@ -1470,6 +1470,66 @@ i.fa-link, .fa.fa-link { display: none !important; }
 }
 
 
-/* Center CTA blocks (Roof Condition Report page) */
+/* ============================
+   Founding Member Rate Table
+   ============================ */
+.table-responsive{
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table.tier-table{
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+}
+
+table.tier-table thead th{
+  background: #0f2233;
+  color: #fff;
+  font-weight: 800;
+  padding: 14px 16px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+table.tier-table thead th:first-child{
+  text-align: left;
+}
+
+table.tier-table tbody td{
+  padding: 14px 16px;
+  border-top: 1px solid #eef2f6;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+table.tier-table tbody td:first-child{
+  text-align: left;
+  font-weight: 700;
+  white-space: normal;
+}
+
+/* Font Awesome check color */
+table.tier-table .fa-check,
+table.tier-table .fa-solid.fa-check{
+  color: #ea5a1f;
+  font-size: 16px;
+}
+
+/* Center CTA groups (used on report page) */
 .center-cta{ text-align:center; }
-.center-cta a{ display:inline-block; }
+.center-cta a{ display:inline-block; margin: 6px 6px 0; }
+
+/* Mobile comfort */
+@media (max-width: 768px){
+  table.tier-table thead th,
+  table.tier-table tbody td{ padding: 12px 12px; }
+}
+
