@@ -277,66 +277,59 @@
     window.openSnapshotGallery = function(i){ openImageLightbox(SNAPSHOT_LIST, i||0); };
     window.openReportGallery   = function(i){ if(REPORT_LIST && REPORT_LIST.length>1) openImageLightbox(REPORT_LIST, i||0); else openImageLightbox('images/two.jpg', 0); };
 
-
-    // ---------- Force nav links with hashes to navigate (prevents one-page smooth-scroll scripts from trapping clicks) ----------
-    document.addEventListener('click', function(e){
-      var a = e.target && e.target.closest ? e.target.closest('a') : null;
-      if(!a) return;
-      var href = a.getAttribute('href') || '';
-      // Only force navigation for links that should jump to the HOME page sections
-      if(href.indexOf('index.html#') === 0 || href.indexOf('/index.html#') === 0 || href.indexOf('/#') === 0){
-        e.preventDefault();
-        window.location.href = href;
-      }
-    }, true);
-
-    // ---------- FAQ Toggle (vanilla JS; works even if jQuery fails to load) ----------
-    (function initFAQVanilla(){
-      var root = document.getElementById('skysure-faq') || document.getElementById('faq');
+    
+    // ---------- FAQ Toggle (Roof Condition Report + Home) ----------
+    (function initFAQ(){
+      // Support multiple containers/ids (home uses #skysure-faq, report page may use #faq or #rcr-faq)
+      var root = document.getElementById('skysure-faq') ||
+                 document.getElementById('faq') ||
+                 document.getElementById('rcr-faq');
       if(!root) return;
+
       var headers = root.querySelectorAll('.faqs-service li h4');
       if(!headers || !headers.length) return;
 
-      headers.forEach(function(h){
-        h.classList.remove('active');
-        h.setAttribute('tabindex','0');
-        h.setAttribute('role','button');
-        h.setAttribute('aria-expanded','false');
-        var p = h.nextElementSibling;
-        if(p && p.tagName === 'P'){ p.style.display = 'none'; }
-      });
-
-      function toggle(h){
-        var p = h.nextElementSibling;
-        if(!p || p.tagName !== 'P') return;
-        var isOpen = h.classList.contains('active');
-
-        headers.forEach(function(other){
-          if(other !== h){
-            other.classList.remove('active');
-            other.setAttribute('aria-expanded','false');
-            var op = other.nextElementSibling;
-            if(op && op.tagName === 'P'){ op.style.display = 'none'; }
-          }
-        });
-
-        if(isOpen){
+      function closeAll(except){
+        headers.forEach(function(h){
+          if(except && h === except) return;
           h.classList.remove('active');
           h.setAttribute('aria-expanded','false');
-          p.style.display = 'none';
-        } else {
-          h.classList.add('active');
-          h.setAttribute('aria-expanded','true');
-          p.style.display = 'block';
-        }
+          var p = h.nextElementSibling;
+          if(p && p.tagName === 'P'){ p.style.display = 'none'; }
+        });
       }
 
       headers.forEach(function(h){
-        h.addEventListener('click', function(){ toggle(h); });
+        // ensure accessibility attributes
+        h.setAttribute('tabindex','0');
+        h.setAttribute('role','button');
+        if(!h.hasAttribute('aria-expanded')) h.setAttribute('aria-expanded','false');
+
+        // start closed (CSS already hides p; we enforce inline in case another rule overrides)
+        var p = h.nextElementSibling;
+        if(p && p.tagName === 'P'){ p.style.display = 'none'; }
+
+        function toggle(){
+          var p = h.nextElementSibling;
+          if(!p || p.tagName !== 'P') return;
+          var isOpen = h.classList.contains('active');
+          if(isOpen){
+            h.classList.remove('active');
+            h.setAttribute('aria-expanded','false');
+            p.style.display = 'none';
+          } else {
+            closeAll(h);
+            h.classList.add('active');
+            h.setAttribute('aria-expanded','true');
+            p.style.display = 'block';
+          }
+        }
+
+        h.addEventListener('click', function(e){ e.preventDefault(); toggle(); });
         h.addEventListener('keydown', function(e){
           if(e.key === 'Enter' || e.key === ' '){
             e.preventDefault();
-            toggle(h);
+            toggle();
           }
         });
       });
