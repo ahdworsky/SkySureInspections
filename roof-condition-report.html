@@ -221,11 +221,11 @@ body.noscroll{overflow:hidden!important;}
 <div class="navbar navbar-default" role="navigation">
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
-<li> <a href="/index.html#home"> Home</a></li>
-<li> <a href="/index.html#services"> Services</a></li>
+<li> <a href="#home"> Home</a></li>
+<li> <a href="#services"> Services</a></li>
 <li> <a href="roof-condition-report.html"> Roof Condition Report</a></li>
-<li> <a href="/index.html#about"> About Us</a></li>
-<li> <a href="/blog/"> Blog</a></li>
+<li> <a href="#about"> About Us</a></li>
+<li> <a href="blog"> Blog</a></li>
 <li> <a href="#faq"> FAQ</a></li>  
 <li><a class="js-open-appt" href="#"> Schedule a Roof Report</a></li>
 </ul>
@@ -355,19 +355,57 @@ body.noscroll{overflow:hidden!important;}
 
     <hr style="margin:26px 0;">
 
-    <section id="faq">
+    <section id="rcr-faq">
       <div class="title" style="margin-bottom:18px;">
         <span><strong>FAQs</strong></span>
         <h2 style="margin-top:6px;">Roof Condition Report Questions</h2>
         <p>Lake Norman + Charlotte</p>
       </div>
       <ul class="faqs-service">
-        <li><h4 tabindex="0" role="button" aria-expanded="false">Is this a home inspection?</h4><p>No. Reports document observable conditions only and are not a licensed home or roofing inspection.</p></li>
-        <li><h4 tabindex="0" role="button" aria-expanded="false">Do I need to be home?</h4><p>Usually no. We just need access to the exterior and a safe place to launch/land.</p></li>
-        <li><h4 tabindex="0" role="button" aria-expanded="false">How do reminders work?</h4><p>You pick annual, semi-annual, or quarterly. SkySure will contact you when it’s time for your next report.</p></li>
-        <li><h4 tabindex="0" role="button" aria-expanded="false">Can I cancel anytime?</h4><p>Yes. No long-term contracts.</p></li>
-      </ul>
-    </section>
+  <li>
+    <h4 tabindex="0" role="button" aria-expanded="false">
+      Is this a home inspection?
+    </h4>
+    <p>
+      No. Reports document observable conditions only and are not a licensed home or roofing inspection.
+    </p>
+  </li>
+
+  <li>
+    <h4 tabindex="0" role="button" aria-expanded="false">
+      Do I need to be home?
+    </h4>
+    <p>
+      Usually no. We just need access to the exterior and a safe place to launch/land.
+    </p>
+  </li>
+
+  <li>
+    <h4 tabindex="0" role="button" aria-expanded="false">
+      How do reminders work?
+    </h4>
+    <p>
+      You pick annual, semi-annual, or quarterly. SkySure will contact you when it’s time for your next report.
+    </p>
+  </li>
+
+  <li>
+    <h4 tabindex="0" role="button" aria-expanded="false">
+      Can I cancel anytime?
+    </h4>
+    <p>Yes. No long-term contracts.</p>
+  </li>
+</ul>
+
+<!-- 👇 ADD THIS RIGHT HERE -->
+<div class="faq-more-link" style="text-align:center; margin-top:30px;">
+  <a href="/index.html#faq" class="btn btn-outline">
+    See All FAQ’s
+  </a>
+</div>
+
+</section>
+
 
     <div class="center-cta" style="margin-top:20px;">
       <a class="js-open-appt btn-primary-cta" href="#" data-service="Founding Member Program (Need help choosing)">Join as a Founding Member</a>
@@ -649,27 +687,7 @@ body.noscroll{overflow:hidden!important;}
   });
 })();
 </script>
-<script>
-(function(){
-  function initFAQ(){
-    var $ = window.jQuery; if(!$) return;
-    var $root = $('#skysure-faq'); if(!$root.length) $root = $('#faq'); if(!$root.length) return;
-    var $headers = $root.find('.faqs-service h4');
-    var speed = 180;
-    $headers.removeClass('active').attr('aria-expanded','false').next('p').hide();
-    function activate($h){
-      var $p = $h.next('p'); var open = $h.hasClass('active');
-      $headers.filter('.active').not($h).removeClass('active').attr('aria-expanded','false').next('p').slideUp(speed);
-      if(open){ $h.removeClass('active').attr('aria-expanded','false'); $p.slideUp(speed); }
-      else { $h.addClass('active').attr('aria-expanded','true'); $p.slideDown(speed); }
-    }
-    $headers.on('click', function(){ activate($(this)); });
-    $headers.on('keydown', function(e){ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); activate($(this)); }});
-  }
-  if(document.readyState!=='loading'){ initFAQ(); }
-  else{ document.addEventListener('DOMContentLoaded', initFAQ); }
-})();
-</script>
+
 <script>
 (function(){
   function headerOffset(){
