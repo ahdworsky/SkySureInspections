@@ -1532,4 +1532,69 @@ table.tier-table .fa-solid.fa-check{
   table.tier-table thead th,
   table.tier-table tbody td{ padding: 12px 12px; }
 }
+/* ================================
+   FIX: Founding Member Rate Tier Table "Collapsing"
+   Ensures table layout isn't overridden by theme styles.
+================================= */
 
+.pricing-table-wrap{
+  width:100%;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+
+.pricing-table-wrap table,
+table.tier-table{
+  width:100% !important;
+  border-collapse:separate !important;
+  border-spacing:0 !important;
+  table-layout:fixed !important;
+}
+
+table.tier-table thead,
+table.tier-table tbody,
+table.tier-table tr{
+  display:table-row-group !important;
+}
+
+table.tier-table tr{ display:table-row !important; }
+
+table.tier-table th,
+table.tier-table td{
+  display:table-cell !important;
+  float:none !important;
+  position:static !important;
+  vertical-align:middle !important;
+  padding:14px 16px !important;
+  white-space:normal !important;
+}
+
+table.tier-table th{
+  white-space:nowrap !important;
+}
+
+table.tier-table th:first-child,
+table.tier-table td:first-child{
+  width:42% !important;
+  font-weight:700 !important;
+}
+
+table.tier-table th:not(:first-child),
+table.tier-table td:not(:first-child){
+  width:19.333% !important;
+  text-align:center !important;
+}
+
+@media (max-width:768px){
+  .pricing-table-wrap table,
+  table.tier-table{
+    min-width:720px !important;
+  }
+}
+
+/* ================================
+   FAQ VISIBILITY OVERRIDES
+   Ensures answers stay open when toggled
+================================ */
+.faqs-service li.active > p{ display:block !important; }
+.faqs-service h4.active + p{ display:block !important; }
