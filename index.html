@@ -530,56 +530,63 @@ body.noscroll{overflow:hidden!important;}
 <h3 id="appt-title">Schedule a Roof Report</h3>
 <p class="sr-only" id="appt-desc">
     Provide your contact information and service preference to request an appointment.
-  </p>
+</p>
+
 <form action="https://formspree.io/f/xnnzvgyl" id="inspection-form" method="POST" novalidate="">
-<div class="form-grid">
-<div class="field">
-<label for="name">Name</label>
-<input autocomplete="name" id="name" name="Name" placeholder="Name" required=""/>
-</div>
-<div class="field">
-<label for="email">Email</label>
-<input autocomplete="email" id="email" name="Email" placeholder="Email" required="" type="email"/>
-</div>
-<div class="field">
-<label for="phone">Phone</label>
-<input autocomplete="tel" id="phone" inputmode="tel" name="Phone" placeholder="Phone #" type="tel"/>
-</div>
-<div class="field">
-<label for="service">Service</label>
-<select id="service" name="Service">
-<option value="Annual Roof Condition Report (Founding Member Rate)">$100 — Annual Roof Condition Report (Founding Member Rate)</option>
-<option value="Semi-Annual Roof Condition Report (Founding Member Rate)">$150 — Semi-Annual Roof Condition Report (Founding Member Rate)</option>
-<option value="Quarterly Roof Condition Report (Founding Member Rate)">$200 — Quarterly Roof Condition Report (Founding Member Rate)</option>
-<option value="Founding Member Program (Need help choosing)">Founding Member Program (Need help choosing)</option>
-<option value="Insurance Claim Documentation">Insurance Claim Documentation</option>
-<option value="Realtor Marketing Add-On">Realtor Marketing Add-On</option>
-<option value="Land Survey Flyover">Land Survey Flyover</option>
-</select>
-<p class=\"disclaimer-mini\" style=\"margin-top:8px;\">Reports document observable conditions only and are not a licensed home or roofing inspection.</p>
-</div>
-<div class="field full">
-<label for="timeframe">Preferred Timeframe</label>
-<input id="timeframe" name="Timeframe" placeholder="Preferred Timeframe"/>
-</div>
-<div class="field full">
-<label for="comments">Additional Comments</label>
-<textarea id="comments" name="Comments" placeholder="Additional Comments"></textarea>
-</div>
-<div aria-live="polite" class="full sr-only" id="form-message"></div>
-<div class="full"><button id="submit-btn" type="submit">Submit</button></div>
-</div>
+  
+  <!-- Formspree redirect to Thank You page -->
+  <input type="hidden" name="_redirect" value="https://www.skysureinspections.com/thank-you/">
+
+  <div class="form-grid">
+    <div class="field">
+      <label for="name">Name</label>
+      <input autocomplete="name" id="name" name="Name" placeholder="Name" required="" />
+    </div>
+
+    <div class="field">
+      <label for="email">Email</label>
+      <input autocomplete="email" id="email" name="Email" placeholder="Email" required="" type="email" />
+    </div>
+
+    <div class="field">
+      <label for="phone">Phone</label>
+      <input autocomplete="tel" id="phone" inputmode="tel" name="Phone" placeholder="Phone #" type="tel" />
+    </div>
+
+    <div class="field">
+      <label for="service">Service</label>
+      <select id="service" name="Service">
+        <option value="Annual Roof Condition Report (Founding Member Rate)">$100 — Annual Roof Condition Report (Founding Member Rate)</option>
+        <option value="Semi-Annual Roof Condition Report (Founding Member Rate)">$150 — Semi-Annual Roof Condition Report (Founding Member Rate)</option>
+        <option value="Quarterly Roof Condition Report (Founding Member Rate)">$200 — Quarterly Roof Condition Report (Founding Member Rate)</option>
+        <option value="Founding Member Program (Need help choosing)">Founding Member Program (Need help choosing)</option>
+        <option value="Insurance Claim Documentation">Insurance Claim Documentation</option>
+        <option value="Realtor Marketing Add-On">Realtor Marketing Add-On</option>
+        <option value="Land Survey Flyover">Land Survey Flyover</option>
+      </select>
+      <p class="disclaimer-mini" style="margin-top:8px;">
+        Reports document observable conditions only and are not a licensed home or roofing inspection.
+      </p>
+    </div>
+
+    <div class="field full">
+      <label for="timeframe">Preferred Timeframe</label>
+      <input id="timeframe" name="Timeframe" placeholder="Preferred Timeframe" />
+    </div>
+
+    <div class="field full">
+      <label for="comments">Additional Comments</label>
+      <textarea id="comments" name="Comments" placeholder="Additional Comments"></textarea>
+    </div>
+
+    <div aria-live="polite" class="full sr-only" id="form-message"></div>
+
+    <div class="full">
+      <button id="submit-btn" type="submit">Submit</button>
+    </div>
+  </div>
 </form>
-</div>
-<!-- Confirmation popup -->
-<div aria-labelledby="confirm-title" aria-modal="true" class="confirmation" hidden="" id="confirmation-popup" role="alertdialog">
-<div class="confirmation-body">
-<h4 id="confirm-title">Request received.</h4>
-<p>Someone will contact you shortly.</p>
-<div class="full"><button aria-label="Close confirmation" class="ok_btn" onclick="closePopup()" type="submit">OK</button></div>
-<!-- <button type="button">OK</button> -->
-</div>
-</div>
+
 <!--page scroll start-->
 <div class="page-scroll scrollToTop"><a href="#"><i aria-hidden="true" class="fa fa-arrow-up"></i></a></div>
 <!--page scroll start-->
