@@ -191,9 +191,70 @@ body.noscroll{overflow:hidden!important;}
     margin-bottom: 0.6rem;
   }
 }
+
+/* Mobile styling for education section */
+@media (max-width: 768px) {
+  #home {
+    padding: 40px 15px 20px 15px !important;
+  }
+  #home h2 {
+    font-size: 28px !important;
+    line-height: 1.2 !important;
+  }
+  #home p {
+    font-size: 14px !important;
+  }
+  #home .row {
+    text-align: center !important;
+    justify-content: center !important;
+  }
+  #home .row > div {
+    text-align: center !important;
+  }
+  .navbar-header {
+    display: flex !important;
+    align-items: center !important;
+  }
+  .navbar-toggle {
+    position: absolute !important;
+    right: 15px !important;
+    margin: 0 !important;
+  }
+}
 </style>
 </head>
 <body>
+<!-- VIDEO MODAL -->
+<div id="video-modal" role="dialog" aria-modal="true" aria-label="Educational video player" style="position: fixed; inset: 0; background: rgba(0,0,0,0.8); display: none; align-items: center; justify-content: center; z-index: 2147483645;">
+  <div class="modal-content" style="background: white; border-radius: 10px; padding: 20px; max-width: 90vw; max-height: 90vh; overflow: auto;">
+    <button class="close-btn" aria-label="Close video" type="button" style="position: absolute; top: 10px; right: 15px; background: none; border: none; font-size: 32px; cursor: pointer; color: #999;">&times;</button>
+    <video id="modal-video" controls style="width: 100%; max-width: 800px;">
+      <source src="videos/problem.mp4" type="video/mp4">
+    </video>
+  </div>
+</div>
+
+<!-- REQUEST INFO FORM MODAL -->
+<div id="request-info-backdrop" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 2147483646;"></div>
+<div id="request-info-form" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; border-radius: 10px; padding: 40px; max-width: 500px; width: 90%; z-index: 2147483647; box-shadow: 0 20px 60px rgba(0,0,0,.35);">
+  <button class="close-info-btn" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 28px; cursor: pointer; color: #999;">&times;</button>
+  <h2 style="color: #0e1f2f; margin-bottom: 20px; font-size: 28px; font-weight: 700;">Have Questions?</h2>
+  <p style="color: #6c7a89; margin-bottom: 30px;">Send us your questions and we'll get back to you within 24 hours.</p>
+  <form id="request-info-form-element" style="display: flex; flex-direction: column; gap: 15px;">
+    <input type="text" name="name" placeholder="Your Name" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px;" required>
+    <input type="email" name="email" placeholder="Your Email" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px;" required>
+    <input type="tel" name="phone" placeholder="Phone (optional)" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px;">
+    <textarea name="message" placeholder="Your Question" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; min-height: 100px;" required></textarea>
+    <button type="submit" style="background: #ea5a1f; color: white; border: none; padding: 12px; border-radius: 6px; font-weight: 600; cursor: pointer;">Send</button>
+  </form>
+  <form action="https://formspree.io/f/xvzwggwp" method="POST" id="request-info-form-hidden" style="display:none;">
+    <input type="hidden" name="name">
+    <input type="hidden" name="email">
+    <input type="hidden" name="phone">
+    <input type="hidden" name="message">
+  </form>
+</div>
+
 <!-- Overlay for the two doc cards -->
 <div id="docOverlay" aria-hidden="true" role="dialog" aria-label="Document viewer">
   <div class="backdrop"></div>
@@ -206,7 +267,7 @@ body.noscroll{overflow:hidden!important;}
 <!-- Row Rtart -->
 <div class="row">
 <div class="col-md-3 col-sm-3">
-<div class="logo"><img alt="SkySure Inspections logo" src="images/logo.png"/></div>
+<div class="logo"><a href="#home"><img alt="SkySure Inspections logo" src="images/logo.png"/></a></div>
 <div class="navbar-header">
 <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
 </div>
@@ -222,7 +283,6 @@ body.noscroll{overflow:hidden!important;}
 <li> <a href="#services"> Services</a></li>
 <li> <a href="roof-condition-report.html"> Roof Condition Report</a></li>
 <li> <a href="#about"> About Us</a></li>
-<li> <a href="blog"> Blog</a></li>
 <li> <a href="#faq"> FAQ</a></li>  
 <li><a class="js-open-appt" href="#"> Schedule a Roof Report</a></li>
 </ul>
@@ -236,27 +296,42 @@ body.noscroll{overflow:hidden!important;}
 </div>
 </div>
 <!-- Header end -->
-<section class="banenr-section" id="home">
-<div class="banner-content">
-<div class="caption lfl large-title tp-resizeme slidertext1">
-  <span style="color: #ea5a1f;">SkySure Inspections</span>
-</div>
+<!-- VIDEO EDUCATION SECTION - NOW FIRST CONTENT (MOVED UP) -->
+<section id="home" style="background: #f8f9fa; padding: 80px 20px 30px 20px; text-align: center; margin-top: 50px;">
+<div class="container">
+  <h2 style="font-size: 42px; color: #0e1f2f; margin-bottom: 20px; font-weight: 700;">Why Annual Roof Monitoring Matters</h2>
+  
+  <p style="font-size: 18px; color: #6c7a89; max-width: 100%; margin: 0 auto 35px; word-wrap: break-word; overflow-wrap: break-word;">See exactly what's happening with your roof — before small problems become expensive repairs.</p>
 
-<div class="caption lfb large-title tp-resizeme slidertext4" style="color:#fff;">
-  Roof Condition Reports (Drone-Based)
-</div>
+  <!-- NUMBERS (PAIN POINT) -->
+  <div class="row" style="display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap; margin-bottom: 35px; width: 100%;">
+    <div style="text-align: center;">
+      <div style="font-size: 16px; color: #6c7a89; margin-bottom: 8px;">Average Roof Repair</div>
+      <div style="font-size: 44px; font-weight: 700; color: #ea5a1f;">$8,000–$15,000</div>
+    </div>
+    <div style="text-align: center;">
+      <div style="font-size: 16px; color: #6c7a89; margin-bottom: 8px;">Annual Inspection Cost</div>
+      <div style="font-size: 44px; font-weight: 700; color: #0e1f2f;">$100–$200</div>
+    </div>
+    <div style="text-align: center;">
+      <div style="font-size: 16px; color: #6c7a89; margin-bottom: 8px;">Time to ROI</div>
+      <div style="font-size: 44px; font-weight: 700; color: #0e1f2f;">1 Problem</div>
+      <div style="font-size: 14px; color: #6c7a89; margin-top: 5px;">= 5+ years of inspections</div>
+    </div>
+  </div>
 
-<div class="caption lfb tp-resizeme slidertext4" style="color:#fff; font-size:18px; margin-top:8px;">
-  Because What You Can't See, Can Cost You
-</div>
+  <!-- VIDEO BUTTONS -->
+  <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px;">
+    <button class="video-trigger" data-video="problem" style="background: #ea5a1f; color: white; border: none; padding: 14px 32px; font-size: 16px; font-weight: 600; border-radius: 6px; cursor: pointer;">❌ The Problem</button>
+    <button class="video-trigger" data-video="solution" style="background: transparent; color: #ea5a1f; border: 2px solid #ea5a1f; padding: 14px 32px; font-size: 16px; font-weight: 600; border-radius: 6px; cursor: pointer;">✅ The Solution</button>
+  </div>
 
-<div class="hero-cta-row">
-  <a class="js-open-appt btn-primary-cta" href="#" data-service="Annual Roof Condition Report (Founding Member Rate)">Get My Roof Condition Report</a>
-  <a class="btn-secondary-cta" href="roof-condition-report.html">Learn More</a>
-  <a class="btn-text-cta" href="tel:(980) 494-3993">Call/Text: (980) 494-3993</a>
-</div>
-</div>
+  <p style="font-size: 14px; color: #999; margin-bottom: 20px;">Click to watch (free educational videos)</p>
+
+  <!-- HAVE QUESTIONS BUTTON -->
+  <button id="have-questions-btn" style="background: transparent; color: #ea5a1f; border: 2px solid #ea5a1f; padding: 15px 30px; font-size: 15px; font-weight: 600; border-radius: 6px; cursor: pointer;">Have Questions?</button>
 </section>
+
 <!--service start-->
 <div class="service-wrap" id="services">
 <div class="container">
@@ -514,7 +589,7 @@ body.noscroll{overflow:hidden!important;}
 <div class="footer-logo"><a aria-label="SkySure Inspections home" href="index.html"><img alt="SkySure Inspections" src="images/footer-logo.png"/></a></div>
 <p>FAA Part 107 Certified | Insured | Roof Condition Reports (Drone-Based). Reports document observable conditions only and are not a licensed home or roofing inspection.</p>
 <div class="address_info">
-<div class="call-us">Email: <a href="mailto:support@skysureinspections.com">support@skysureinspections.com</a></div>
+<div class="call-us">Email: <a href="/cdn-cgi/l/email-protection#82f1f7f2f2edf0f6c2f1e9fbf1f7f0e7ebecf1f2e7e1f6ebedecf1ace1edef"><span class="__cf_email__" data-cfemail="dba8aeababb4a9af9ba8b0a2a8aea9beb2b5a8abbeb8afb2b4b5a8f5b8b4b6">[email&#160;protected]</span></a></div>
 <div class="fax">Phone: <a href="tel:(980) 494-3993">(980) 494-3993</a></div>
 <div class="footer-address">Hours: M–F 9am–8pm | Sat 9am–6pm | Sun 9am–12pm</div>
 </div>
@@ -591,7 +666,7 @@ body.noscroll{overflow:hidden!important;}
 <div class="page-scroll scrollToTop"><a href="#"><i aria-hidden="true" class="fa fa-arrow-up"></i></a></div>
 <!--page scroll start-->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script defer src="js/jquery-2.1.4.min.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="js/jquery-2.1.4.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script defer src="js/bootstrap.min.js"></script>
 <!-- Load JS siles -->
@@ -957,17 +1032,4 @@ body.noscroll{overflow:hidden!important;}
         if (msgEl) msgEl.textContent = errText;
 
       } catch (err) {
-        if (msgEl) msgEl.textContent = 'Network error — please try again in a moment.';
-      } finally {
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Submit';
-        }
-      }
-    }, true);
-  });
-})();
-</script>
-
-</body>
-</html>
+        if (msgEl) ms
