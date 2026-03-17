@@ -230,7 +230,7 @@ body.noscroll{overflow:hidden!important;}
 <div class="video-modal-container" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #000; padding: 15px; border-radius: 8px; width: 85%; max-width: 600px; max-height: 60vh; overflow: hidden; z-index: 2; display: flex; flex-direction: column;">
 <button class="video-modal-close" aria-label="Close video" style="position: absolute; top: 10px; right: 10px; font-size: 28px; line-height: 1; border: 0; background: transparent; color: #fff; cursor: pointer; padding: 0; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;">×</button>
 <div class="video-modal-content" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-<video id="surveyVideo" controls style="width: 100%; height: 100%; max-width: 100%; max-height: 100%; object-fit: contain;">
+<video id="surveyVideo" controls style="width: 90%; height: 90%; max-width: 90%; max-height: 90%; object-fit: contain;">
   <source src="videos/problem.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -795,6 +795,18 @@ document.addEventListener('DOMContentLoaded', function(){
     openRequestForm();
   }
 
+  // Clean up URL when clicking navigation links - remove query params
+  var navLinks = document.querySelectorAll('a[href^="#"]');
+  navLinks.forEach(function(link){
+    link.addEventListener('click', function(){
+      // Remove query parameters from URL
+      var hash = this.getAttribute('href');
+      if(hash.startsWith('#')){
+        window.history.replaceState({}, document.title, window.location.pathname + hash);
+      }
+    });
+  });
+
   // Handle video modal close and auto-scroll to services
   var videoModal = document.getElementById('videoModal');
   var videoCloseBtn = document.querySelector('.video-modal-close');
@@ -823,7 +835,7 @@ document.addEventListener('DOMContentLoaded', function(){
       e.preventDefault();
       e.stopPropagation();
       closeVideo();
-    });
+    }, true); // Use capture phase
   }
   
   if(videoOverlay){
