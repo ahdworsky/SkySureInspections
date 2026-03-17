@@ -972,6 +972,112 @@ body.noscroll{overflow:hidden!important;}
 }
 </script>
 
+<script>
+(function(){
+  var modal = document.getElementById('video-modal');
+  var modalVideo = document.getElementById('modal-video');
+  var closeBtn = modal ? modal.querySelector('.close-btn') : null;
+  var videoTriggers = document.querySelectorAll('.video-trigger');
+  var haveQuestionsBtn = document.getElementById('have-questions-btn');
+  var requestInfoBackdrop = document.getElementById('request-info-backdrop');
+  var requestInfoForm = document.getElementById('request-info-form');
+  var closeInfoBtn = requestInfoForm ? requestInfoForm.querySelector('.close-info-btn') : null;
+  var requestInfoFormElement = document.getElementById('request-info-form-element');
+
+  // Video trigger handlers
+  videoTriggers.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var videoType = this.getAttribute('data-video');
+      var videoSrc = 'videos/' + videoType + '.mp4';
+      
+      if(modalVideo) modalVideo.src = videoSrc;
+      if(modalVideo) modalVideo.play();
+      
+      if(modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  // Close video modal
+  function closeVideoModal(){
+    if(modal) modal.style.display = 'none';
+    if(modalVideo) modalVideo.pause();
+    if(modalVideo) modalVideo.currentTime = 0;
+    document.body.style.overflow = '';
+    
+    // Auto-scroll to services section after video closes
+    setTimeout(function(){
+      var servicesSection = document.getElementById('services');
+      if(servicesSection){
+        var headerHeight = 70;
+        var top = servicesSection.offsetTop - headerHeight;
+        window.scrollTo({
+          top: Math.max(0, top),
+          behavior: 'smooth'
+        });
+      }
+    }, 300);
+  }
+
+  if(closeBtn) closeBtn.addEventListener('click', closeVideoModal);
+
+  if(modal){
+    modal.addEventListener('click', function(e){
+      if(e.target === modal){
+        closeVideoModal();
+      }
+    });
+  }
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && modal && modal.style.display !== 'none'){
+      closeVideoModal();
+    }
+  });
+
+  // Have Questions button handler
+  if(haveQuestionsBtn){
+    haveQuestionsBtn.addEventListener('click', function(){
+      if(requestInfoBackdrop) requestInfoBackdrop.style.display = 'block';
+      if(requestInfoForm) requestInfoForm.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    });
+  }
+
+  // Close request info form
+  function closeRequestForm(){
+    if(requestInfoBackdrop) requestInfoBackdrop.style.display = 'none';
+    if(requestInfoForm) requestInfoForm.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  if(closeInfoBtn) closeInfoBtn.addEventListener('click', closeRequestForm);
+  if(requestInfoBackdrop) requestInfoBackdrop.addEventListener('click', closeRequestForm);
+
+  // Handle request info form submission
+  if(requestInfoFormElement){
+    requestInfoFormElement.addEventListener('submit', function(e){
+      e.preventDefault();
+      
+      var name = document.querySelector('#request-info-form input[name="name"]').value;
+      var email = document.querySelector('#request-info-form input[name="email"]').value;
+      var phone = document.querySelector('#request-info-form input[name="phone"]').value;
+      var message = document.querySelector('#request-info-form textarea[name="message"]').value;
+      
+      var hiddenForm = document.getElementById('request-info-form-hidden');
+      if(hiddenForm){
+        hiddenForm.querySelector('input[name="name"]').value = name;
+        hiddenForm.querySelector('input[name="email"]').value = email;
+        hiddenForm.querySelector('input[name="phone"]').value = phone;
+        hiddenForm.querySelector('input[name="message"]').value = message;
+        hiddenForm.submit();
+      }
+    });
+  }
+})();
+</script>
 
 <script>
 /**
