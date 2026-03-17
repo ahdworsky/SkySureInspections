@@ -846,6 +846,16 @@ document.addEventListener('DOMContentLoaded', function(){
     }, true); // Use capture phase
   }
   
+  // Also add direct onclick to button as backup
+  if(videoCloseBtn){
+    videoCloseBtn.onclick = function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      closeVideo();
+      return false;
+    };
+  }
+  
   if(videoOverlay){
     videoOverlay.addEventListener('click', function(e){
       e.preventDefault();
