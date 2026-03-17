@@ -224,14 +224,19 @@ body.noscroll{overflow:hidden!important;}
 </style>
 </head>
 <body>
-<!-- VIDEO MODAL -->
-<div id="video-modal" role="dialog" aria-modal="true" aria-label="Educational video player" style="position: fixed; inset: 0; background: rgba(0,0,0,0.8); display: none; align-items: center; justify-content: center; z-index: 2147483645;">
-  <div class="modal-content" style="background: white; border-radius: 10px; padding: 20px; max-width: 90vw; max-height: 90vh; overflow: auto;">
-    <button class="close-btn" aria-label="Close video" type="button" style="position: absolute; top: 10px; right: 15px; background: none; border: none; font-size: 32px; cursor: pointer; color: #999;">&times;</button>
-    <video id="modal-video" controls style="width: 100%; max-width: 800px;">
-      <source src="videos/problem.mp4" type="video/mp4">
-    </video>
-  </div>
+<!-- VIDEO MODAL - Match app.js expectations -->
+<div id="videoModal" hidden="" role="dialog" aria-modal="true" aria-label="Educational video player">
+<div class="video-modal-overlay">
+<div class="video-modal-container">
+<button class="video-modal-close" aria-label="Close video">×</button>
+<div class="video-modal-content">
+<video id="surveyVideo" controls style="width: 100%; max-width: 800px; display: block; margin: 0 auto;">
+  <source src="videos/problem.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+</div>
+</div>
+</div>
 </div>
 
 <!-- REQUEST INFO FORM MODAL -->
@@ -322,14 +327,14 @@ body.noscroll{overflow:hidden!important;}
 
   <!-- VIDEO BUTTONS -->
   <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px;">
-    <button class="video-trigger" data-video="problem" style="background: #ea5a1f; color: white; border: none; padding: 14px 32px; font-size: 16px; font-weight: 600; border-radius: 6px; cursor: pointer;">❌ The Problem</button>
-    <button class="video-trigger" data-video="solution" style="background: transparent; color: #ea5a1f; border: 2px solid #ea5a1f; padding: 14px 32px; font-size: 16px; font-weight: 600; border-radius: 6px; cursor: pointer;">✅ The Solution</button>
+    <button class="video-trigger" onclick="openVideoModal('videos/problem.mp4')" style="background: #ea5a1f; color: white; border: none; padding: 14px 32px; font-size: 16px; font-weight: 600; border-radius: 6px; cursor: pointer;">❌ The Problem</button>
+    <button class="video-trigger" onclick="openVideoModal('videos/solution.mp4')" style="background: transparent; color: #ea5a1f; border: 2px solid #ea5a1f; padding: 14px 32px; font-size: 16px; font-weight: 600; border-radius: 6px; cursor: pointer;">✅ The Solution</button>
   </div>
 
   <p style="font-size: 14px; color: #999; margin-bottom: 20px;">Click to watch (free educational videos)</p>
 
   <!-- HAVE QUESTIONS BUTTON -->
-  <button id="have-questions-btn" style="background: transparent; color: #ea5a1f; border: 2px solid #ea5a1f; padding: 15px 30px; font-size: 15px; font-weight: 600; border-radius: 6px; cursor: pointer;">Have Questions?</button>
+  <button id="have-questions-btn" onclick="openRequestForm()" style="background: transparent; color: #ea5a1f; border: 2px solid #ea5a1f; padding: 15px 30px; font-size: 15px; font-weight: 600; border-radius: 6px; cursor: pointer;">Have Questions?</button>
 </section>
 
 <!--service start-->
@@ -747,7 +752,20 @@ body.noscroll{overflow:hidden!important;}
   background:#fff; border:none; border-radius:50%; cursor:pointer; width:40px; height:40px; }
 </style>
 
-<script defer="True" src="js/app.js"></script><script>
+<script defer="True" src="js/app.js"></script>
+
+<script>
+// Helper function for "Have Questions?" button
+function openRequestForm(){
+  var backdrop = document.getElementById('request-info-backdrop');
+  var form = document.getElementById('request-info-form');
+  if(backdrop) backdrop.style.display = 'block';
+  if(form) form.style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+</script>
+
+<script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
       navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(function (err) {
@@ -972,112 +990,6 @@ body.noscroll{overflow:hidden!important;}
 }
 </script>
 
-<script>
-(function(){
-  var modal = document.getElementById('video-modal');
-  var modalVideo = document.getElementById('modal-video');
-  var closeBtn = modal ? modal.querySelector('.close-btn') : null;
-  var videoTriggers = document.querySelectorAll('.video-trigger');
-  var haveQuestionsBtn = document.getElementById('have-questions-btn');
-  var requestInfoBackdrop = document.getElementById('request-info-backdrop');
-  var requestInfoForm = document.getElementById('request-info-form');
-  var closeInfoBtn = requestInfoForm ? requestInfoForm.querySelector('.close-info-btn') : null;
-  var requestInfoFormElement = document.getElementById('request-info-form-element');
-
-  // Video trigger handlers
-  videoTriggers.forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var videoType = this.getAttribute('data-video');
-      var videoSrc = 'videos/' + videoType + '.mp4';
-      
-      if(modalVideo) modalVideo.src = videoSrc;
-      if(modalVideo) modalVideo.play();
-      
-      if(modal) {
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-      }
-    });
-  });
-
-  // Close video modal
-  function closeVideoModal(){
-    if(modal) modal.style.display = 'none';
-    if(modalVideo) modalVideo.pause();
-    if(modalVideo) modalVideo.currentTime = 0;
-    document.body.style.overflow = '';
-    
-    // Auto-scroll to services section after video closes
-    setTimeout(function(){
-      var servicesSection = document.getElementById('services');
-      if(servicesSection){
-        var headerHeight = 70;
-        var top = servicesSection.offsetTop - headerHeight;
-        window.scrollTo({
-          top: Math.max(0, top),
-          behavior: 'smooth'
-        });
-      }
-    }, 300);
-  }
-
-  if(closeBtn) closeBtn.addEventListener('click', closeVideoModal);
-
-  if(modal){
-    modal.addEventListener('click', function(e){
-      if(e.target === modal){
-        closeVideoModal();
-      }
-    });
-  }
-
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape' && modal && modal.style.display !== 'none'){
-      closeVideoModal();
-    }
-  });
-
-  // Have Questions button handler
-  if(haveQuestionsBtn){
-    haveQuestionsBtn.addEventListener('click', function(){
-      if(requestInfoBackdrop) requestInfoBackdrop.style.display = 'block';
-      if(requestInfoForm) requestInfoForm.style.display = 'block';
-      document.body.style.overflow = 'hidden';
-    });
-  }
-
-  // Close request info form
-  function closeRequestForm(){
-    if(requestInfoBackdrop) requestInfoBackdrop.style.display = 'none';
-    if(requestInfoForm) requestInfoForm.style.display = 'none';
-    document.body.style.overflow = '';
-  }
-
-  if(closeInfoBtn) closeInfoBtn.addEventListener('click', closeRequestForm);
-  if(requestInfoBackdrop) requestInfoBackdrop.addEventListener('click', closeRequestForm);
-
-  // Handle request info form submission
-  if(requestInfoFormElement){
-    requestInfoFormElement.addEventListener('submit', function(e){
-      e.preventDefault();
-      
-      var name = document.querySelector('#request-info-form input[name="name"]').value;
-      var email = document.querySelector('#request-info-form input[name="email"]').value;
-      var phone = document.querySelector('#request-info-form input[name="phone"]').value;
-      var message = document.querySelector('#request-info-form textarea[name="message"]').value;
-      
-      var hiddenForm = document.getElementById('request-info-form-hidden');
-      if(hiddenForm){
-        hiddenForm.querySelector('input[name="name"]').value = name;
-        hiddenForm.querySelector('input[name="email"]').value = email;
-        hiddenForm.querySelector('input[name="phone"]').value = phone;
-        hiddenForm.querySelector('input[name="message"]').value = message;
-        hiddenForm.submit();
-      }
-    });
-  }
-})();
-</script>
 
 <script>
 /**
