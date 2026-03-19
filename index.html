@@ -266,18 +266,14 @@ body.noscroll{overflow:hidden!important;}
   <button class="close-info-btn" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 28px; cursor: pointer; color: #999;">&times;</button>
   <h2 style="color: #0e1f2f; margin-bottom: 20px; font-size: 28px; font-weight: 700;">Have Questions?</h2>
   <p style="color: #6c7a89; margin-bottom: 30px;">Send us your questions and we'll get back to you within 24 hours.</p>
-  <form id="request-info-form-element" style="display: flex; flex-direction: column; gap: 15px;">
+  <form id="request-info-form-element" action="https://formspree.io/f/xvzwggwp" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
+    <input type="hidden" name="_gotcha" style="display:none;">
     <input type="text" name="name" placeholder="Your Name" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px;" required>
     <input type="email" name="email" placeholder="Your Email" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px;" required>
     <input type="tel" name="phone" placeholder="Phone (optional)" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px;">
     <textarea name="message" placeholder="Your Question" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; min-height: 100px;" required></textarea>
-    <button type="submit" style="background: #ea5a1f; color: white; border: none; padding: 12px; border-radius: 6px; font-weight: 600; cursor: pointer;">Send</button>
-  </form>
-  <form action="https://formspree.io/f/xvzwggwp" method="POST" id="request-info-form-hidden" style="display:none;">
-    <input type="hidden" name="name">
-    <input type="hidden" name="email">
-    <input type="hidden" name="phone">
-    <input type="hidden" name="message">
+    <button type="submit" id="request-info-submit-btn" style="background: #ea5a1f; color: white; border: none; padding: 12px; border-radius: 6px; font-weight: 600; cursor: pointer;">Send</button>
+    <div id="request-info-success" style="display:none; background: #e6f9f0; color: #1a7f4b; border: 1px solid #a3d9be; border-radius: 6px; padding: 12px; text-align: center; font-weight: 600;">Thanks — we'll get back to you within 24 hours.</div>
   </form>
 </div>
 
@@ -896,6 +892,11 @@ function openRequestForm(){
   if(backdrop) backdrop.style.display = 'block';
   if(form) form.style.display = 'block';
   document.body.style.overflow = 'hidden';
+  // Reset form state each time it opens
+  var successMsg = document.getElementById('request-info-success');
+  var submitBtn = document.getElementById('request-info-submit-btn');
+  if(successMsg) successMsg.style.display = 'none';
+  if(submitBtn){ submitBtn.style.display = ''; submitBtn.disabled = false; submitBtn.textContent = 'Send'; }
 }
 
 function closeRequestForm(){
@@ -905,6 +906,37 @@ function closeRequestForm(){
   if(form) form.style.display = 'none';
   document.body.style.overflow = '';
 }
+
+// ---------- Have Questions form submission ----------
+document.addEventListener('DOMContentLoaded', function(){
+  var hqForm = document.getElementById('request-info-form-element');
+  if(hqForm){
+    hqForm.addEventListener('submit', async function(e){
+      e.preventDefault();
+      var submitBtn = document.getElementById('request-info-submit-btn');
+      var successMsg = document.getElementById('request-info-success');
+      if(submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+      try {
+        var resp = await fetch(hqForm.action, {
+          method: 'POST',
+          body: new FormData(hqForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if(resp.ok){
+          hqForm.reset();
+          if(submitBtn) submitBtn.style.display = 'none';
+          if(successMsg) successMsg.style.display = 'block';
+        } else {
+          if(submitBtn){ submitBtn.disabled = false; submitBtn.textContent = 'Send'; }
+          alert('Something went wrong. Please try again.');
+        }
+      } catch(err){
+        if(submitBtn){ submitBtn.disabled = false; submitBtn.textContent = 'Send'; }
+        alert('Network error. Please try again.');
+      }
+    });
+  }
+});
 
 // Setup close button handler when DOM is ready
 document.addEventListener('DOMContentLoaded', function(){
