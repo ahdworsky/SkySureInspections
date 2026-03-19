@@ -1331,6 +1331,15 @@ document.addEventListener('DOMContentLoaded', function(){
         } catch (_) {}
 
         if (msgEl) msgEl.textContent = errText;
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Submit'; }
 
       } catch (err) {
-        if (msgEl) ms
+        if (msgEl) msgEl.textContent = 'Network error — please try again or call/text us.';
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Submit'; }
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
