@@ -1,5 +1,5 @@
 // sw.js — mobile-focused caching for repeat visits on GitHub Pages
-const VERSION = 'v1.0.0-restore1-step3';
+const VERSION = 'v1.2.0';
 const PRECACHE = `precache-${VERSION}`;
 const RUNTIME  = `runtime-${VERSION}`;
 const IMG_CACHE = `images-${VERSION}`;
@@ -7,17 +7,14 @@ const IMG_CACHE = `images-${VERSION}`;
 const PRECACHE_URLS = [
   // CSS/JS
   'css/bootstrap.min.css',
-  'css/font-awesome.css',
   'css/owl.carousel.css',
   'css/style.css',
-  'css/settings.css',
   'js/jquery-2.1.4.min.js',
   'js/bootstrap.min.js',
-  'js/jquery.themepunch.tools.min.js',
-  'js/jquery.themepunch.revolution.min.js',
   'js/owl.carousel.js',
   'js/script.js',
   'js/custom.js',
+  'js/app.js',
   // small images/icons
   'images/logo.png',
   'images/footer-logo.png',
